@@ -11,3 +11,6 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   pattern = { "*" },
   command = [[%s/\s\+$//e]],
 })
+
+-- Easier to read file contents
+vim.opt.scrolloff = 5
