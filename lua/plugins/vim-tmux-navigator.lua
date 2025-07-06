@@ -14,4 +14,8 @@ return {
     { "<C-l>", "<cmd>TmuxNavigateRight<CR>" },
     { "<C-\\>", "<cmd>TmuxNavigatePrevious<CR>" },
   },
+  opts = {
+    tmux_navigator_no_wrap = 1,
+    tmux_navigator_disable_when_zoomed = 1,
+  },
 }
