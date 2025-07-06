@@ -10,3 +10,8 @@ vim.keymap.set(
   ":w<ENTER>:echo 'File saved'<ENTER>",
   { noremap = true, silent = true, desc = "Save file" }
 )
+
+-- Copy to clipboard with capital Y
+-- https://stackoverflow.com/a/67890119/2075507
+vim.keymap.set({ "n" }, "yY", '^"+y$')
+vim.keymap.set({ "n", "v" }, "Y", '"+y')
