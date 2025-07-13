@@ -23,4 +23,4 @@ vim.keymap.set({ "n" }, "yY", '^"+y$')
 vim.keymap.set({ "n", "v" }, "Y", '"+y')
 
 -- Select all text
-vim.keymap.set({ "n" }, "<C-a>", "ggVG", { noremap = true, silent = true, desc = "Select all text" })
+-- vim.keymap.set({ "n" }, "<C-a>", "ggVG", { noremap = true, silent = true, desc = "Select all text" })
