@@ -24,3 +24,6 @@ vim.keymap.set({ "n", "v" }, "Y", '"+y')
 
 -- Select all text
 -- vim.keymap.set({ "n" }, "<C-a>", "ggVG", { noremap = true, silent = true, desc = "Select all text" })
+
+-- Toggle hidden characters
+vim.keymap.set("n", "<leader>h", ":set list!<CR>", { noremap = true, silent = true, desc = "Toggle hidden characters" })
