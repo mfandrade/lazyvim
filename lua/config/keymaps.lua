@@ -19,3 +19,6 @@ vim.keymap.set(
 -- Copy to clipboard with capital Y -- https://stackoverflow.com/a/67890119/2075507
 vim.keymap.set({ "n" }, "yY", '^"+y$', { noremap = true, silent = true })
 vim.keymap.set({ "n", "v" }, "Y", '"+y', { noremap = true, silent = true })
+
+-- Less hand movement -- https://vi.stackexchange.com/a/16969
+vim.keymap.set("i", "jj", "<ESC>", { noremap = true, silent = true })
