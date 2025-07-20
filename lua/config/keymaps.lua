@@ -8,8 +8,7 @@ vim.keymap.set("n", "<Down>", ":echo 'HJKL!'<CR>", { noremap = true, silent = tr
 vim.keymap.set("n", "<Left>", ":echo 'HJKL!'<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<Right>", ":echo 'HJKL!'<CR>", { noremap = true, silent = true })
 
--- C-w to save file
--- https://stackoverflow.com/a/77783955/2075507
+-- C-w to save file -- https://stackoverflow.com/a/77783955/2075507
 vim.keymap.set(
   { "n" },
   "<C-w>",
@@ -17,8 +16,7 @@ vim.keymap.set(
   { noremap = true, silent = true, desc = "Save file" }
 )
 
--- Copy to clipboard with capital Y
--- https://stackoverflow.com/a/67890119/2075507
+-- Copy to clipboard with capital Y -- https://stackoverflow.com/a/67890119/2075507
 vim.keymap.set({ "n" }, "yY", '^"+y$')
 vim.keymap.set({ "n", "v" }, "Y", '"+y')
 
