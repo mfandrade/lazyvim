@@ -22,3 +22,7 @@ vim.keymap.set({ "n", "v" }, "Y", '"+y', { noremap = true, silent = true })
 
 -- Less hand movement -- https://vi.stackexchange.com/a/16969
 vim.keymap.set("i", "jj", "<ESC>", { noremap = true, silent = true })
+
+-- As <C-a> is my tmux prefix
+vim.keymap.set("n", "+", "<C-a>", { noremap = true, silent = true, desc = "Increment numbers" })
+vim.keymap.set("n", "-", "<C-x>", { noremap = true, silent = true, desc = "Decrement numbers" })
