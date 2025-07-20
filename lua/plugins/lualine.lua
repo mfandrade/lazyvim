@@ -6,6 +6,10 @@ return {
     -- Carrega a paleta de cores do Catppuccin
     local catppuccin = require("catppuccin.palettes").get_palette()
 
+    -- Mantém sua configuração existente para desativar lualine_z
+    opts.sections = opts.sections or {}
+    opts.sections.lualine_z = {}
+
     -- Garante que opts.options existe
     opts.options = opts.options or {}
 
