@@ -19,6 +19,3 @@ vim.keymap.set(
 -- Copy to clipboard with capital Y -- https://stackoverflow.com/a/67890119/2075507
 vim.keymap.set({ "n" }, "yY", '^"+y$')
 vim.keymap.set({ "n", "v" }, "Y", '"+y')
-
--- Select all text
--- vim.keymap.set({ "n" }, "<C-a>", "ggVG", { noremap = true, silent = true, desc = "Select all text" })
