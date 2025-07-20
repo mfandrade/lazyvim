@@ -18,4 +18,5 @@ return {
     tmux_navigator_no_wrap = 1,
     tmux_navigator_disable_when_zoomed = 1,
   },
+  config = function() end,
 }
