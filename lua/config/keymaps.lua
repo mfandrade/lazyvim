@@ -17,5 +17,5 @@ vim.keymap.set(
 )
 
 -- Copy to clipboard with capital Y -- https://stackoverflow.com/a/67890119/2075507
-vim.keymap.set({ "n" }, "yY", '^"+y$')
-vim.keymap.set({ "n", "v" }, "Y", '"+y')
+vim.keymap.set({ "n" }, "yY", '^"+y$', { noremap = true, silent = true })
+vim.keymap.set({ "n", "v" }, "Y", '"+y', { noremap = true, silent = true })
