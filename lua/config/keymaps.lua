@@ -8,20 +8,14 @@ vim.keymap.set("n", "<Down>", ":echoerr 'HJKL!'<CR>", { noremap = true, silent =
 vim.keymap.set("n", "<Left>", ":echoerr 'HJKL!'<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<Right>", ":echoerr 'HJKL!'<CR>", { noremap = true, silent = true })
 
--- C-w to save file -- https://stackoverflow.com/a/77783955/2075507
-vim.keymap.set(
-  { "n" },
-  "<C-w>",
-  ":w<ENTER>:echo 'File saved'<ENTER>",
-  { noremap = true, silent = true, desc = "Save file" }
-)
-
 -- Copy to clipboard with capital Y -- https://stackoverflow.com/a/67890119/2075507
 vim.keymap.set({ "n" }, "yY", '^"+y$', { noremap = true, silent = true })
 vim.keymap.set({ "n", "v" }, "Y", '"+y', { noremap = true, silent = true })
 
 -- Less hand movement -- https://vi.stackexchange.com/a/16969
 vim.keymap.set("i", "jj", "<ESC>", { noremap = true, silent = true })
+vim.keymap.set("n", "ww", ":w<CR>:echo 'File saved'<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "aa", 'ggVG"+y', { noremap = true, silent = true })
 
 -- As <C-a> is my tmux prefix
 vim.keymap.set("n", "+", "<C-a>", { noremap = true, silent = true, desc = "Increment numbers" })
