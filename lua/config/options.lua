@@ -5,6 +5,9 @@
 -- Don't sync clipboard with system
 vim.opt.clipboard = ""
 
+-- Time to differentiate double strokes keymaps
+vim.opt.timeoutlen = 200
+
 -- Easier to read file contents
 vim.opt.scrolloff = 5
 
