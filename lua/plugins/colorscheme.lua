@@ -5,6 +5,10 @@ return {
     priority = 1000,
     opts = {
       transparent = true,
+      styles = {
+        sidebars = "dark",
+        floats = "dark",
+      },
     },
   },
   {
@@ -19,7 +23,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "catppuccin-mocha",
+      colorscheme = "tokyonight",
     },
   },
 }
