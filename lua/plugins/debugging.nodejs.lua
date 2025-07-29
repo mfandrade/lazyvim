@@ -108,23 +108,10 @@ return {
 
       for _, language in ipairs(js_based_languages) do
         dap.configurations[language] = {
-          -- Debug single nodejs files
           {
-            name = "Debug a single file",
-            type = "pwa-node",
-            request = "launch",
-            program = "${file}",
-            cwd = "${workspaceFolder}",
-            args = { "${file}" },
-            sourceMaps = true,
-            sourceMapPathOverrides = {
-              ["./*"] = "${workspaceFolder}/src/*",
-            },
-          },
-          {
+            name = "Debug a running server [--inspect-brk …]",
             type = "pwa-node",
             request = "attach",
-            name = "Debug a running server (node --inspect-brk ...)",
             port = 9229, -- Conecta diretamente à porta
             host = "localhost",
             cwd = "${workspaceFolder}",
@@ -132,7 +119,6 @@ return {
             sourceMaps = true,
             skipFiles = { "<node_internals>/**", "node_modules/**" },
           },
-          -- Debug nodejs processes (make sure to add --inspect when you run the process)
           -- {
           --   name = "Debug a running process",
           --   type = "pwa-node",
@@ -158,32 +144,6 @@ return {
           --   sourceMaps = true,
           -- },
           {
-            name = "Debug jest tests",
-            type = "pwa-node",
-            request = "launch",
-            runtimeExecutable = "node",
-            runtimeArgs = { "${workspaceFolder}/node_modules/.bin/jest", "--runInBand" },
-            rootPath = "${workspaceFolder}",
-            cwd = "${workspaceFolder}",
-            console = "integratedTerminal",
-            internalConsoleOptions = "neverOpen",
-            -- args = {'${file}', '--coverage', 'false'},
-            -- sourceMaps = true,
-            -- skipFiles = {'node_internals/**', 'node_modules/**'},
-          },
-          {
-            name = "Debug vitest tests",
-            type = "pwa-node",
-            request = "launch",
-            cwd = vim.fn.getcwd(),
-            program = "${workspaceFolder}/node_modules/vitest/vitest.mjs",
-            args = { "run", "${file}" },
-            autoAttachChildProcesses = true,
-            smartStep = true,
-            skipFiles = { "<node_internals>/**", "node_modules/**" },
-          },
-          -- Debug web applications (client side)
-          {
             name = "Debug in Chrome (client side)",
             type = "pwa-chrome",
             request = "launch",
@@ -207,7 +167,6 @@ return {
               "${workspaceFolder}/**",
               "!**/node_modules/**",
             },
-
             -- From https://github.com/lukas-reineke/dotfiles/blob/master/vim/lua/plugins/dap.lua
             -- To test how it behaves
             rootPath = "${workspaceFolder}",
@@ -219,7 +178,44 @@ return {
             },
           },
           {
-            name = "--------------- ↑ configs from launch.json (if present) ↑ --------------- ",
+            name = "Debug jest tests",
+            type = "pwa-node",
+            request = "launch",
+            runtimeExecutable = "node",
+            runtimeArgs = { "${workspaceFolder}/node_modules/.bin/jest", "--runInBand" },
+            rootPath = "${workspaceFolder}",
+            cwd = "${workspaceFolder}",
+            console = "integratedTerminal",
+            internalConsoleOptions = "neverOpen",
+            -- args = {'${file}', '--coverage', 'false'},
+            -- sourceMaps = true,
+            -- skipFiles = {'node_internals/**', 'node_modules/**'},
+          },
+          {
+            name = "Debug a file",
+            type = "pwa-node",
+            request = "launch",
+            program = "${file}",
+            cwd = "${workspaceFolder}",
+            args = { "${file}" },
+            sourceMaps = true,
+            sourceMapPathOverrides = {
+              ["./*"] = "${workspaceFolder}/src/*",
+            },
+          },
+          -- {
+          --   name = "Debug vitest tests",
+          --   type = "pwa-node",
+          --   request = "launch",
+          --   cwd = vim.fn.getcwd(),
+          --   program = "${workspaceFolder}/node_modules/vitest/vitest.mjs",
+          --   args = { "run", "${file}" },
+          --   autoAttachChildProcesses = true,
+          --   smartStep = true,
+          --   skipFiles = { "<node_internals>/**", "node_modules/**" },
+          -- },
+          {
+            name = "--------------- ↓ configs from launch.json (if present) ↓ --------------- ",
             type = "",
             request = "launch",
           },
