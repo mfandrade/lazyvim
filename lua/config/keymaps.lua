@@ -17,6 +17,8 @@ vim.keymap.set("i", "jj", "<ESC>", { noremap = true, silent = true })
 vim.keymap.set("n", "ww", ":w<CR>:echo 'File saved'<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "aa", 'ggVG"+y', { noremap = true, silent = true })
 vim.keymap.set("n", "QQ", ":qall<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "0", "^", { noremap = true, silent = true })
+vim.keymap.set("n", "00", "0", { noremap = true, silent = true })
 
 -- As <C-a> is my tmux prefix
 vim.keymap.set("n", "+", "<C-a>", { noremap = true, silent = true, desc = "Increment numbers" })
