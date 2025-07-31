@@ -33,22 +33,32 @@ vim.keymap.set("n", "<C-g>", fish_style_path, { noremap = true })
 -- end, { noremap = true })
 
 -- Avoid arrow keys
-vim.keymap.set("n", "<Up>", ":echoerr 'HJKL!'<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<Down>", ":echoerr 'HJKL!'<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<Left>", ":echoerr 'HJKL!'<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<Right>", ":echoerr 'HJKL!'<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<Up>", ":echoerr 'HJKL!'<CR>", silent)
+vim.keymap.set("n", "<Down>", ":echoerr 'HJKL!'<CR>", silent)
+vim.keymap.set("n", "<Left>", ":echoerr 'HJKL!'<CR>", silent)
+vim.keymap.set("n", "<Right>", ":echoerr 'HJKL!'<CR>", silent)
 
 -- Copy to clipboard with capital Y -- https://stackoverflow.com/a/67890119/2075507
-vim.keymap.set({ "n" }, "yY", '^"+y$', { noremap = true, silent = true })
-vim.keymap.set({ "n", "v" }, "Y", '"+y', { noremap = true, silent = true })
+vim.keymap.set({ "n" }, "yY", '^"+y$', silent)
+vim.keymap.set({ "n", "v" }, "Y", '"+y', silent)
 
 -- Less hand movement -- https://vi.stackexchange.com/a/16969
-vim.keymap.set("i", "jj", "<ESC>", { noremap = true, silent = true })
-vim.keymap.set("n", "kk", ":w<CR>:echo 'File saved'<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "aa", 'ggVG"+y', { noremap = true, silent = true })
-vim.keymap.set("n", "QQ", ":qall<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "0", "^", { noremap = true, silent = true })
-vim.keymap.set("n", "00", "0", { noremap = true, silent = true })
+vim.keymap.set("i", "jk", "<ESC>", silent)
+vim.keymap.set("n", "kk", ":w<CR>:echo 'File saved'<CR>", silent)
+vim.keymap.set("n", "aa", 'ggVG"+y', silent)
+vim.keymap.set("n", "QQ", ":qall<CR>", silent)
+vim.keymap.set("n", "0", "^", silent)
+vim.keymap.set("n", "00", "0", silent)
+
+-- F-keys
+-- F1 = doc underlying symbol
+-- F2 = rename
+vim.keymap.set("n", "<F3>", "<C-e>", silent)
+vim.keymap.set("n", "<F4>", "<C-y>", silent)
+-- F5 = dap continue
+-- F6 = dap step over
+-- F7 = dap step into
+-- F8 = ?
 
 -- As <C-a> is my tmux prefix
 vim.keymap.set("n", "+", "<C-a>", { noremap = true, silent = true, desc = "Increment numbers" })
