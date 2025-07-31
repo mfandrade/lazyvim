@@ -2,6 +2,36 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
+local silent = { noremap = true, silent = true }
+
+local function fish_style_path()
+  local fullpath = vim.fn.expand("%:p") -- full path
+  local home = vim.fn.expand("$HOME")
+
+  -- Replace home with ~
+  if fullpath:sub(1, #home) == home then
+    fullpath = "~" .. fullpath:sub(#home + 1)
+  end
+
+  local parts = vim.split(fullpath, "/", { plain = true })
+  local filename = table.remove(parts) -- get the filename
+
+  -- Abbreviate each directory to its first character, except ~
+  for i, part in ipairs(parts) do
+    if part ~= "" and part ~= "~" then
+      parts[i] = part:sub(1, 1)
+    end
+  end
+
+  local abbreviated = table.concat(parts, "/") .. "/" .. filename
+  print(abbreviated)
+end
+
+vim.keymap.set("n", "<C-g>", fish_style_path, { noremap = true })
+-- vim.keymap.set("n", "<C-g>", function()
+--   print(vim.fn.expand("%:t"))
+-- end, { noremap = true })
+
 -- Avoid arrow keys
 vim.keymap.set("n", "<Up>", ":echoerr 'HJKL!'<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<Down>", ":echoerr 'HJKL!'<CR>", { noremap = true, silent = true })
