@@ -59,7 +59,3 @@ vim.keymap.set("n", "<F4>", "<C-y>", silent)
 -- F6 = dap step over
 -- F7 = dap step into
 -- F8 = ?
-
--- As <C-a> is my tmux prefix
-vim.keymap.set("n", "+", "<C-a>", { noremap = true, silent = true, desc = "Increment numbers" })
-vim.keymap.set("n", "-", "<C-x>", { noremap = true, silent = true, desc = "Decrement numbers" })
