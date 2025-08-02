@@ -8,16 +8,14 @@ local function fish_style_path()
   local fullpath = vim.fn.expand("%:p") -- full path
   local home = vim.fn.expand("$HOME")
 
-  -- Replace home with ~
-  if fullpath:sub(1, #home) == home then
+  if fullpath:sub(1, #home) == home then -- Replace home with ~
     fullpath = "~" .. fullpath:sub(#home + 1)
   end
 
   local parts = vim.split(fullpath, "/", { plain = true })
   local filename = table.remove(parts) -- get the filename
 
-  -- Abbreviate each directory to its first character, except ~
-  for i, part in ipairs(parts) do
+  for i, part in ipairs(parts) do -- abbrev each dir to its first char
     if part ~= "" and part ~= "~" then
       parts[i] = part:sub(1, 1)
     end
@@ -26,11 +24,8 @@ local function fish_style_path()
   local abbreviated = table.concat(parts, "/") .. "/" .. filename
   print(abbreviated)
 end
-
-vim.keymap.set("n", "<C-g>", fish_style_path, { noremap = true })
--- vim.keymap.set("n", "<C-g>", function()
---   print(vim.fn.expand("%:t"))
--- end, { noremap = true })
+vim.keymap.set("n", "<C-g>", fish_style_path, ops)
+-- vim.keymap.set("n", "<C-g>", function() print(vim.fn.expand("%:t")) end, ops ) -- ALT
 
 -- Avoid arrow keys
 vim.keymap.set("n", "<Up>", ":echoerr 'HJKL!'<CR>", silent)
