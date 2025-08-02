@@ -7,7 +7,7 @@ return {
       pattern = "VeryLazy",
       callback = function()
         -- Create some toggle mappings
-        Snacks.toggle.option("list", { name = "Invisible Chars" }):map("<leader>uv")
+        require("snacks").toggle.option("list", { name = "Invisible Chars" }):map("<leader>uv")
       end,
     })
   end,

@@ -1,5 +1,11 @@
 return {
   {
+    "ellisonleao/gruvbox.nvim",
+    opts = {
+      transparent_background = true,
+    },
+  },
+  {
     "folke/tokyonight.nvim",
     lazy = false,
     priority = 1000,
@@ -16,7 +22,6 @@ return {
     name = "catppuccin",
     priority = 1000,
     opts = {
-      -- don't use it with catppuccin-latte
       transparent_background = true,
     },
   },

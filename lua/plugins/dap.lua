@@ -120,28 +120,28 @@ return {
             skipFiles = { "<node_internals>/**", "node_modules/**" },
           },
           -- {
-          --   name = "Debug a running process",
-          --   type = "pwa-node",
-          --   request = "attach",
-          --   processId = function()
-          --     local function filter_node_processes(process)
-          --       local name = process.name:lower()
-          --       local command = process.command:lower()
+          --    name = "Debug a running process",
+          --    type = "pwa-node",
+          --    request = "attach",
+          --    processId = function()
+          --      local function filter_node_processes(process)
+          --        local name = process.name:lower()
+          --        local command = process.command:lower()
           --
-          --       -- filter 'node' processes, except 'vsDebugServer.js' and shell initiated ones
-          --       -- e os processos de shell que iniciam 'node'.
-          --       return (name == "node" or command:find("node"))
-          --         and not command:find("vsdebugserver.js")
-          --         and not command:find("sh %-c node")
-          --         and not command:find("bash %-c node")
-          --         and not command:find("zsh %-c node")
-          --       -- Adicione outras exclusões se houver processos node indesejados (ex: nodemon)
-          --     end
+          --        -- filter 'node' processes, except 'vsDebugServer.js' and shell initiated ones
+          --        -- e os processos de shell que iniciam 'node'.
+          --        return (name == "node" or command:find("node"))
+          --          and not command:find("vsdebugserver.js")
+          --          and not command:find("sh %-c node")
+          --          and not command:find("bash %-c node")
+          --          and not command:find("zsh %-c node")
+          --          -- Adicione outras exclusões se houver processos node indesejados (ex: nodemon)
+          --        end
           --
-          --     return require("dap.utils").pick_process(filter_node_processes)
-          --   end,
-          --   cwd = "${workspaceFolder}",
-          --   sourceMaps = true,
+          --        return require("dap.utils").pick_process(filter_node_processes)
+          --    end,
+          --    cwd = "${workspaceFolder}",
+          --    sourceMaps = true,
           -- },
           {
             name = "Debug in Chrome (client side)",
@@ -204,15 +204,15 @@ return {
             },
           },
           -- {
-          --   name = "Debug vitest tests",
-          --   type = "pwa-node",
-          --   request = "launch",
-          --   cwd = vim.fn.getcwd(),
-          --   program = "${workspaceFolder}/node_modules/vitest/vitest.mjs",
-          --   args = { "run", "${file}" },
-          --   autoAttachChildProcesses = true,
-          --   smartStep = true,
-          --   skipFiles = { "<node_internals>/**", "node_modules/**" },
+          --    name = "Debug vitest tests",
+          --    type = "pwa-node",
+          --    request = "launch",
+          --    cwd = vim.fn.getcwd(),
+          --    program = "${workspaceFolder}/node_modules/vitest/vitest.mjs",
+          --    args = { "run", "${file}" },
+          --    autoAttachChildProcesses = true,
+          --    smartStep = true,
+          --    skipFiles = { "<node_internals>/**", "node_modules/**" },
           -- },
           {
             name = "--------------- ↓ configs from launch.json (if present) ↓ --------------- ",
