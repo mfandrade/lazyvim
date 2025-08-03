@@ -1,5 +1,11 @@
 return {
   {
+    "habamax/vim-habanight",
+    opts = {
+      habanight_transp_bg = true,
+    },
+  },
+  {
     "ellisonleao/gruvbox.nvim",
     opts = {
       transparent_background = true,
@@ -28,7 +34,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "tokyonight",
+      colorscheme = "habamax",
     },
   },
 }
