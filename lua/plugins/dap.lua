@@ -119,30 +119,6 @@ return {
             sourceMaps = true,
             skipFiles = { "<node_internals>/**", "node_modules/**" },
           },
-          -- {
-          --    name = "Debug a running process",
-          --    type = "pwa-node",
-          --    request = "attach",
-          --    processId = function()
-          --      local function filter_node_processes(process)
-          --        local name = process.name:lower()
-          --        local command = process.command:lower()
-          --
-          --        -- filter 'node' processes, except 'vsDebugServer.js' and shell initiated ones
-          --        -- e os processos de shell que iniciam 'node'.
-          --        return (name == "node" or command:find("node"))
-          --          and not command:find("vsdebugserver.js")
-          --          and not command:find("sh %-c node")
-          --          and not command:find("bash %-c node")
-          --          and not command:find("zsh %-c node")
-          --          -- Adicione outras exclusões se houver processos node indesejados (ex: nodemon)
-          --        end
-          --
-          --        return require("dap.utils").pick_process(filter_node_processes)
-          --    end,
-          --    cwd = "${workspaceFolder}",
-          --    sourceMaps = true,
-          -- },
           {
             name = "Debug in Chrome (client side)",
             type = "pwa-chrome",
@@ -224,11 +200,11 @@ return {
     end,
     keys = {
       {
-        "<F7>", -- "<leader>dO",
+        "<F5>", -- "<leader>di",
         function()
-          require("dap").step_out()
+          require("dap").step_into()
         end,
-        desc = "Step Out",
+        desc = "Step Into",
       },
       {
         "<F6>", -- "<leader>do",
@@ -238,18 +214,18 @@ return {
         desc = "Step Over",
       },
       {
-        "<F5>", -- "<leader>di",
+        "<F7>", -- "<leader>dO",
         function()
-          require("dap").step_into()
+          require("dap").step_out()
         end,
-        desc = "Step Into",
+        desc = "Step Out",
       },
       {
         "<F8>",
         function()
-          require("dap").run_to_cursor()
+          require("dap").continue({ true })
         end,
-        desc = "Run to cursor",
+        desc = "Run/Continue",
       },
     },
     dependencies = {
