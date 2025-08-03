@@ -1,7 +1,6 @@
 return {
   {
-    -- seemlessly navigation through vim and tmux panes
-    "christoomey/vim-tmux-navigator",
+    "christoomey/vim-tmux-navigator", -- seemlessly navigation through vim and tmux panes
     cmd = {
       "TmuxNavigateLeft",
       "TmuxNavigateDown",
@@ -23,6 +22,6 @@ return {
     },
     config = function() end,
   },
-  -- allows session restore with tmux-resurrect
-  { "tpope/vim-obsession" },
+  { "RyanMillerC/better-vim-tmux-resizer" }, -- pane resize version of vtn
+  { "tpope/vim-obsession" }, -- allows session restore with tmux-resurrect
 }
