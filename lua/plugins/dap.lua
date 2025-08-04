@@ -200,32 +200,32 @@ return {
     end,
     keys = {
       {
-        "<F5>", -- "<leader>di",
+        "<F5>",
+        function()
+          require("dap").continue()
+        end,
+        desc = "Run/Continue",
+      },
+      {
+        "<F6>",
         function()
           require("dap").step_into()
         end,
         desc = "Step Into",
       },
       {
-        "<F6>", -- "<leader>do",
+        "<F7>",
         function()
           require("dap").step_over()
         end,
         desc = "Step Over",
       },
       {
-        "<F7>", -- "<leader>dO",
+        "<F8>",
         function()
           require("dap").step_out()
         end,
         desc = "Step Out",
-      },
-      {
-        "<F8>",
-        function()
-          require("dap").continue({ true })
-        end,
-        desc = "Run/Continue",
       },
     },
     dependencies = {
