@@ -109,7 +109,7 @@ return {
       for _, language in ipairs(js_based_languages) do
         dap.configurations[language] = {
           {
-            name = "Debug a running server [--inspect-brk …]",
+            name = "⚙️ Debug a running server [--inspect-brk …]",
             type = "pwa-node",
             request = "attach",
             port = 9229, -- Conecta diretamente à porta
@@ -120,7 +120,7 @@ return {
             skipFiles = { "<node_internals>/**", "node_modules/**" },
           },
           {
-            name = "Debug in Chrome (client side)",
+            name = "🌐 Debug in Chrome (client side)",
             type = "pwa-chrome",
             request = "launch",
             url = function()
@@ -154,7 +154,7 @@ return {
             },
           },
           {
-            name = "Debug jest tests",
+            name = "🚥 Debug jest tests",
             type = "pwa-node",
             request = "launch",
             runtimeExecutable = "node",
@@ -168,7 +168,7 @@ return {
             -- skipFiles = {'node_internals/**', 'node_modules/**'},
           },
           {
-            name = "Debug a file",
+            name = "▶️ Debug a file",
             type = "pwa-node",
             request = "launch",
             program = "${file}",
