@@ -53,11 +53,11 @@ vim.keymap.set("n", "0", "^", opts())
 vim.keymap.set("n", "00", "0", opts())
 
 -- F-keys
--- F1 = doc underlying symbol
+vim.keymap.set("n", "<F1>", ":help ", { noremap = true, desc = "Help" })
 -- F2 = rename
 vim.keymap.set("n", "<F3>", "<C-e>", opts("Scroll Down One Line (without moving cursor)"))
 vim.keymap.set("n", "<F4>", "<C-y>", opts("Scroll Up One Line (without moving cursor"))
--- F5 = dap continue
--- F6 = dap step over
--- F7 = dap step into
--- F8 = ?
+-- F5 = run/continue
+-- F6 = dap step into
+-- F7 = dap step over
+-- F8 = dap step out
