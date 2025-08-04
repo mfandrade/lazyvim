@@ -22,6 +22,5 @@ return {
     },
     config = function() end,
   },
-  { "RyanMillerC/better-vim-tmux-resizer" }, -- pane resize version of vtn
   { "tpope/vim-obsession" }, -- allows session restore with tmux-resurrect
 }
