@@ -1,11 +1,5 @@
 return {
   {
-    "habamax/vim-habanight",
-    opts = {
-      habanight_transp_bg = true,
-    },
-  },
-  {
     "ellisonleao/gruvbox.nvim",
     opts = {
       transparent_background = true,
