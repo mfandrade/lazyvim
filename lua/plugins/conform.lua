@@ -6,11 +6,12 @@ return {
       sh = { "shfmt" },
     },
     formatters = {
-      shfmt = {
-        command = "shfmt",
-        args = { "-i", "4", "-ci" },
-        -- prepend_args = { "-i", "4", "-ci" },
-      },
+      shfmt = function(bufnr)
+        return {
+          command = "shfmt",
+          args = { "-i", tostring(vim.bo[bufnr].shiftwidth), "-ci" },
+        }
+      end,
     },
   },
 }
