@@ -45,7 +45,7 @@ end, opts("Copy text to clipboard"))
 
 -- Less hand movement -- https://vi.stackexchange.com/a/16969
 vim.keymap.set("i", "hj", "<ESC>", opts("Escape"))
-vim.keymap.set("n", "jj", ":w<CR>:echo 'File saved'<CR>", opts("Save File"))
+vim.keymap.set("n", "hh", ":w<CR>:echo 'File saved'<CR>", opts("Save File"))
 vim.keymap.set("n", "aa", "ggVG", opts("Select All Text"))
 vim.keymap.set("n", "AA", 'ggVG"+y', opts("Copy All Text to Clipboard"))
 vim.keymap.set("n", "QQ", ":qall<CR>", opts("Quit All"))
