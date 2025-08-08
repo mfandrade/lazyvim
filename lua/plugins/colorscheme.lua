@@ -15,6 +15,17 @@ return {
         sidebars = "dark",
         floats = "dark",
       },
+      on_highlights = function(hl, c)
+        hl.Folded = {
+          fg = c.blue0, -- Foreground color (text color)
+          bg = c.bg_dark, -- Background color
+          italic = true,
+        }
+        hl.FoldColumn = {
+          fg = c.green,
+          bg = c.bg_dark,
+        }
+      end,
     },
   },
   {
