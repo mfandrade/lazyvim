@@ -18,7 +18,6 @@ return {
     opts = {
       tmux_navigator_no_wrap = 1,
       tmux_navigator_disable_when_zoomed = 1,
-      tmux_navigator_save_on_switch = 2,
     },
     config = function() end,
   },
