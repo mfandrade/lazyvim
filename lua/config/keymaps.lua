@@ -6,7 +6,7 @@ local function opts(desc)
   return { silent = true, noremap = true, desc = desc or nil }
 end
 
-local function fish_style_path()
+vim.keymap.set("n", "<C-g>", function()
   local fullpath = vim.fn.expand("%:p") -- full path
   local home = vim.fn.expand("$HOME")
 
@@ -25,8 +25,7 @@ local function fish_style_path()
 
   local abbreviated = table.concat(parts, "/") .. "/" .. filename
   print(abbreviated)
-end
-vim.keymap.set("n", "<C-g>", fish_style_path, opts("Show current file path"))
+end, opts("Show Current File Path"))
 -- vim.keymap.set("n", "<C-g>", function() print(vim.fn.expand("%:t")) end, ops ) -- ALT
 
 -- Avoid arrow keys
@@ -41,7 +40,7 @@ vim.keymap.set("n", "YY", function()
   local curpos = vim.api.nvim_win_get_cursor(0)
   vim.cmd('normal! ^"+yg_')
   vim.api.nvim_win_set_cursor(0, curpos)
-end, opts("Copy text to clipboard"))
+end, opts("Copy Text to Clipboard"))
 
 -- Less hand movement -- https://vi.stackexchange.com/a/16969
 vim.keymap.set("i", "hj", "<ESC>", opts("Escape"))
@@ -54,10 +53,10 @@ vim.keymap.set("n", "0", "^", opts())
 vim.keymap.set("n", "00", "0", opts())
 
 -- F-keys
-vim.keymap.set("n", "<F1>", ":help ", { noremap = true, desc = "Help" })
--- F2 = rename
-vim.keymap.set("n", "<F3>", "<C-e>", opts("Scroll Down One Line (without moving cursor)"))
-vim.keymap.set("n", "<F4>", "<C-y>", opts("Scroll Up One Line (without moving cursor"))
+vim.keymap.set("n", "<F1>", "<C-e>", opts("Scroll Down One Line"))
+vim.keymap.set("n", "<F2>", "<C-y>", opts("Scroll Up One Line"))
+vim.keymap.set("n", "<F3>", "<C-d>", opts("Scroll Down Half Screen"))
+vim.keymap.set("n", "<F4>", "<C-u>", opts("Scroll Up Half Screen"))
 -- F5 = run/continue
 -- F6 = dap step into
 -- F7 = dap step over
