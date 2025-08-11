@@ -52,6 +52,8 @@ vim.keymap.set("n", "QQ", ":qall<CR>", opts("Quit All"))
 vim.keymap.set("n", "0", "^", opts())
 vim.keymap.set("n", "00", "0", opts())
 
+vim.keymap.set("n", "M", "'", opts("Go To Mark"))
+
 -- F-keys
 vim.keymap.set("n", "<F1>", "<C-d>", opts("Scroll Down Half Screen"))
 vim.keymap.set("n", "<F2>", "<C-e>", opts("Scroll Down One Line"))
