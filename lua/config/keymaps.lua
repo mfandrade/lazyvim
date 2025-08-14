@@ -63,3 +63,13 @@ vim.keymap.set("n", "<F4>", "<C-d>", opts("Scroll Down Half Screen"))
 -- F6 = dap step into
 -- F7 = dap step over
 -- F8 = dap step out
+
+vim.keymap.set("v", "<leader>cf", function()
+  require("conform").format({
+    async = true,
+    range = {
+      ["start"] = vim.api.nvim_buf_get_mark(0, "<"),
+      ["end"] = vim.api.nvim_buf_get_mark(0, ">"),
+    },
+  })
+end, opts("Format Selected Code"))
