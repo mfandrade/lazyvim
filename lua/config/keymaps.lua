@@ -55,10 +55,10 @@ vim.keymap.set("n", "00", "0", opts())
 vim.keymap.set("n", "M", "'", opts("Go To Mark"))
 
 -- F-keys
-vim.keymap.set("n", "<F1>", "<C-d>", opts("Scroll Down Half Screen"))
-vim.keymap.set("n", "<F2>", "<C-e>", opts("Scroll Down One Line"))
-vim.keymap.set("n", "<F3>", "<C-y>", opts("Scroll Up One Line"))
-vim.keymap.set("n", "<F4>", "<C-u>", opts("Scroll Up Half Screen"))
+vim.keymap.set("n", "<F1>", "<C-u>", opts("Scroll Up Half Screen"))
+vim.keymap.set("n", "<F2>", "<C-y>", opts("Scroll Up One Line"))
+vim.keymap.set("n", "<F3>", "<C-e>", opts("Scroll Down One Line"))
+vim.keymap.set("n", "<F4>", "<C-d>", opts("Scroll Down Half Screen"))
 -- F5 = run/continue
 -- F6 = dap step into
 -- F7 = dap step over
