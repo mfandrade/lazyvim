@@ -15,12 +15,12 @@ return {
       },
       additions = {
         { "sun", "mon", "tue", "wed", "thu", "fri", "sat" },
-        { "jan", "feb", "mar", "apr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dec" },
+        { "jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec" },
       },
       allow_caps_additions = {
         { "true", "false" },
         { "sun", "mon", "tue", "wed", "thu", "fri", "sat" },
-        { "jan", "feb", "mar", "apr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dec" },
+        { "jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec" },
       },
     },
   },
