@@ -24,15 +24,5 @@ return {
       },
     },
   },
-  {
-    "ecthelionvi/NeoColumn.nvim",
-    opts = {
-      fg_color = "",
-      bg_color = "",
-      NeoColumn = "120",
-      always_on = true,
-      custom_NeoColumn = {},
-      -- excluded_ft = { "text", "markdown" },
-    },
-  },
+  { "xiyaowong/virtcolumn.nvim" },
 }
