@@ -10,5 +10,6 @@ return {
       },
       lualine_z = {},
     },
+    options = { theme = "ayu" },
   },
 }

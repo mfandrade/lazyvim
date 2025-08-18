@@ -1,5 +1,11 @@
 return {
   {
+    "fxn/vim-monochrome",
+    config = function()
+      vim.g.monochrome_italic_comments = 1
+    end,
+  },
+  {
     "ellisonleao/gruvbox.nvim",
     lazy = false,
     priority = 1000,
@@ -64,7 +70,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "tokyonight", --TODO: set the colorscheme
+      colorscheme = "monochrome", --TODO: set the colorscheme
     },
   },
 }
