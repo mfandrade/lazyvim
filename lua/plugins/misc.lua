@@ -1,4 +1,5 @@
 return {
+  { "HiPhish/rainbow-delimiters.nvim" },
   {
     "nil70n/floating-help",
     opts = {
