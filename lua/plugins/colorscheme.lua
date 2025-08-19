@@ -1,6 +1,8 @@
 return {
   {
     "fxn/vim-monochrome",
+    lazy = false,
+    priority = 1000,
     config = function()
       vim.g.monochrome_italic_comments = 1
     end,
@@ -31,11 +33,6 @@ return {
         }
       end,
     },
-  },
-  {
-    "catppuccin/nvim",
-    name = "catppuccin",
-    priority = 1000,
   },
   {
     "xiyaowong/transparent.nvim",
@@ -70,7 +67,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "monochrome", --TODO: set the colorscheme
+      colorscheme = "tokyonight-night", --TODO: set the colorscheme here
     },
   },
 }
