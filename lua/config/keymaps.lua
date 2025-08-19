@@ -73,3 +73,12 @@ vim.keymap.set("v", "<leader>cf", function()
     },
   })
 end, opts("Format Selected Code"))
+
+vim.keymap.set("n", "<leader>t", function()
+  vim.g.remove_trailing_spaces = not vim.g.remove_trailing_spaces
+  if vim.g.remove_trailing_spaces then
+    echo("Removing trailing spaces")
+  else
+    echo("Saving trailing spaces")
+  end
+end, opts("Toggle Trailing Spaces Removal"))
