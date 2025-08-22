@@ -8,12 +8,13 @@
 -- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
 
 -- Remove trailing spaces on save -- https://vi.stackexchange.com/a/37427
-vim.g.remove_trailing_spaces = true
-vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-  pattern = { "*" },
-  callback = function()
-    if vim.g.remove_trailing_spaces then
-      vim.cmd([[%s/\s\+$//e]])
-    end
-  end,
-})
+-- TODO: a keymap to enable/disable this on-the-fly
+-- vim.g.remove_trailing_spaces = true
+-- vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+--   pattern = { "*" },
+--   callback = function()
+--     if vim.g.remove_trailing_spaces then
+--       vim.cmd([[%s/\s\+$//e]])
+--     end
+--   end,
+-- })
