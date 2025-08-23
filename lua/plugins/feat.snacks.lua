@@ -6,15 +6,16 @@ return {
     dashboard = {
       preset = {
         header = [[
-                                                                      
-         ████ ██████           █████      ██                    
-        ███████████             █████                            
-        █████████ ███████████████████ ███   ███████████  
-       █████████  ███    █████████████ █████ ██████████████  
-      █████████ ██████████ █████████ █████ █████ ████ █████  
-    ███████████ ███    ███ █████████ █████ █████ ████ █████ 
-   ██████  █████████████████████ ████ █████ █████ ████ ██████
-  ]],
+
+                                                                         
+         ████ ██████           █████      ██                       
+        ███████████             █████                               
+        █████████ ███████████████████ ███   ███████████     
+       █████████  ███    █████████████ █████ ██████████████     
+      █████████ ██████████ █████████ █████ █████ ████ █████     
+    ███████████ ███    ███ █████████ █████ █████ ████ █████    
+   ██████  █████████████████████ ████ █████ █████ ████ ██████   
+]],
       },
     },
   },
@@ -22,8 +23,10 @@ return {
     vim.api.nvim_create_autocmd("User", {
       pattern = "VeryLazy",
       callback = function()
-        -- Create some toggle mappings
+        -- <leader>uv - Invisible Chars
         require("snacks").toggle.option("list", { name = "Invisible Chars" }):map("<leader>uv")
+
+        -- <leader>uB - Transparent Background
         require("snacks").toggle
           .new({
             id = "transparent_toggle",
@@ -32,26 +35,26 @@ return {
               local bg = vim.api.nvim_get_hl(0, { name = "Normal" }).bg
               return bg == nil
             end,
+            ---@diagnostic disable-next-line: unused-local
             set = function(state)
               vim.cmd("TransparentToggle")
             end,
           })
           :map("<leader>uB")
+
+        -- <leader>ut - Highlight Trailing Spaces
         require("snacks").toggle
           .new({
             id = "highlight_trailingspaces_toggle",
             name = "Trailing Spaces",
-
             get = function()
               return vim.b.highlight_trailingspaces
             end,
-
             set = function(state)
               vim.b.highlight_trailingspaces = state
-
               if state then
-                vim.api.nvim_set_hl(0, "ExtraWhitespace", { bg = "#512D2D" })
-                vim.cmd([[match ExtraWhitespace /\s\+$/]])
+                vim.api.nvim_set_hl(0, "TrailingWhitespace", { bg = "#512D2D" })
+                vim.cmd([[match TrailingWhitespace /\s\+$/]])
               else
                 vim.cmd([[match none]])
               end
