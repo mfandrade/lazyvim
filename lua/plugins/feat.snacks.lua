@@ -1,5 +1,9 @@
 return {
   "folke/snacks.nvim",
+  dependencies = {
+    "xiyaowong/transparent.nvim",
+    "xiyaowong/virtcolumn.nvim",
+  },
   priority = 1000,
   lazy = false,
   opts = {
@@ -46,7 +50,7 @@ return {
         require("snacks").toggle
           .new({
             id = "highlight_trailingspaces_toggle",
-            name = "Trailing Spaces",
+            name = "Trailing Spaces Highlight",
             get = function()
               return vim.b.highlight_trailingspaces
             end,
@@ -61,6 +65,34 @@ return {
             end,
           })
           :map("<leader>ut")
+
+        -- <leader>u| - Virtual Column
+        vim.g.virtualcolumns = vim.g.virtualcolumns or "120"
+        require("snacks").toggle
+          .new({
+            id = "virtcolumns_toggle",
+            name = "Virtual Columns = " .. vim.g.virtualcolumns,
+            get = function()
+              return vim.g.virtualcolumns_enabled or false
+            end,
+            set = function(state)
+              local wrap = vim.wo.wrap
+              if state then
+                vim.cmd("set colorcolumn=" .. vim.g.virtualcolumns)
+                vim.g.virtualcolumns_enabled = true
+                if wrap then
+                  vim.opt.textwidth = tonumber(vim.g.virtualcolumns)
+                  vim.opt.formatoptions:append("t")
+                end
+              else
+                vim.cmd("set colorcolumn=")
+                vim.g.virtualcolumns_enabled = false
+                vim.opt.textwidth = 0
+                vim.opt.formatoptions:remove("t")
+              end
+            end,
+          })
+          :map("<leader>u|")
       end,
     })
   end,
