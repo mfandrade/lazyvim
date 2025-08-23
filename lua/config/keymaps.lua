@@ -28,6 +28,8 @@ vim.keymap.set("n", "<C-g>", function()
 end, opts("Show Current File Path"))
 -- vim.keymap.set("n", "<C-g>", function() print(vim.fn.expand("%:t")) end, ops ) -- ALT
 
+vim.keymap.set("n", "<C-z>", "<nop>", opts())
+
 -- Avoid arrow keys
 vim.keymap.set("n", "<Up>", ":echoerr 'HJKL!'<CR>", opts())
 vim.keymap.set("n", "<Down>", ":echoerr 'HJKL!'<CR>", opts())
