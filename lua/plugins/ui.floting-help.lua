@@ -1,4 +1,4 @@
 return {
   "nil70n/floating-help",
-  opts = { border = "rounded" },
+  opts = { border = "rounded", ratio = 0.6 },
 }
