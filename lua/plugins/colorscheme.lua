@@ -31,6 +31,9 @@ return {
           fg = c.green,
           bg = c.bg_dark,
         }
+        hl.LineNrAbove = { fg = c.comment }
+        hl.LineNrBelow = { fg = c.comment }
+        hl.CursorLineNr = { fg = c.orange, bold = true }
       end,
     },
   },
@@ -42,32 +45,26 @@ return {
         "NormalNC",
         "NvimTreeNormal",
       },
-      extra_groups = {},
+      extra_groups = {
+        "SignColumn",
+      },
       exclude_groups = {
         "NormalFloat",
         "TelescopeNormal",
         "TelescopePromptNormal",
         "MasonNormal",
         "LspInfoBorder",
+        "WhichKey",
+        "WhichKeyFloat",
+        "WhichKeyBorder",
+        "WhichKeySeparator",
       },
     },
-    config = function(_, opts)
-      require("transparent").setup(opts)
-
-      -- fix which-key border with gruvbox
-      vim.cmd([[
-      augroup GruvboxTransparentFix
-        autocmd!
-        autocmd ColorScheme gruvbox highlight FloatBorder guibg=NONE guifg=#928374
-        autocmd ColorScheme gruvbox highlight WhichKeyBorder guibg=NONE guifg=#928374
-      augroup END
-    ]])
-    end,
   },
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "tokyonight-night", --TODO: set the colorscheme here
+      colorscheme = "tokyonight", --TODO: set colorscheme here
     },
   },
 }
