@@ -21,5 +21,4 @@ return {
     },
     config = function() end,
   },
-  { "tpope/vim-obsession" }, -- allows session restore with tmux-resurrect
 }
