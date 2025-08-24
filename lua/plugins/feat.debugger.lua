@@ -1,10 +1,32 @@
+-- global function to get absolute path for mason adapters
+_G.find_adapter = function(adapter, filename)
+  pcall(require, "mason")
+
+  local mason_dir = vim.env.MASON or (vim.fn.stdpath("data") .. "/mason")
+  local adapter_dir = mason_dir .. "/packages/" .. adapter
+  if vim.fn.isdirectory(adapter_dir) == 0 then
+    error("Adapter directory not found: " .. adapter_dir)
+  end
+
+  local matches = vim.fn.globpath(adapter_dir, "**/" .. filename, false, true)
+  if #matches == 0 then
+    error("File '" .. filename .. "' not found in adapter: " .. adapter)
+  end
+
+  return matches[1]
+end
+
 return {
   "mfussenegger/nvim-dap",
   dependencies = {
-    "rcarriga/nvim-dap-ui",
-    "leoluz/nvim-dap-go",
+    { "leoluz/nvim-dap-go" },
+    {
+      "microsoft/vscode-js-debug",
+      build = "npm install --legacy-peer-deps --no-save && npx gulp vsDebugServerBundle && rm -rf out && mv dist out",
+      version = "1.*",
+    },
   },
-  ft = { "go" },
+  ft = { "go", "javascript" },
   config = function()
     -- set icons for breakpoints
     local config = require("lazyvim.config")
@@ -19,7 +41,8 @@ return {
       })
     end
 
-    require("plugins.dap.go")
+    require("plugins.dap.golang")
+    require("plugins.dap.javascript")
   end,
   keys = {
     -- { "<F9>", "<cmd>lua require'dap'.toggle_breakpoing()<CR>", desc = "Toggle Breakpoing" },
