@@ -51,11 +51,11 @@ return {
     { "<S-F11>", "<cmd>lua require'dap'.step_out()<CR>", desc = "Step Out" },
     { "<S-F5>", "<cmd>lua require'dap'.terminate()<CR>", desc = "Terminate" },
     { "<F5>", "<cmd>lua require'dap'.continue()<CR>", desc = "Run/Continue" },
-    -- { "<S-Down>", "<cmd>lua require'dap'.toggle_breakpoing()<CR>", desc = "Toggle Breakpoing" },
+    -- { "<Up>", "<cmd>lua require'dap'.toggle_breakpoing()<CR>", desc = "Toggle Breakpoing" },
     { "<Down>", "<cmd>lua require'dap'.step_over()<CR>", desc = "Step Over" },
     { "<Right>", "<cmd>lua require'dap'.step_into()<CR>", desc = "Step Into" },
     { "<Left>", "<cmd>lua require'dap'.step_out()<CR>", desc = "Step Out" },
     { "<S-Up>", "<cmd>lua require'dap'.terminate()<CR>", desc = "Terminate" },
-    { "<Up>", "<cmd>lua require'dap'.continue()<CR>", desc = "Run/Continue" },
+    { "<S-Down>", "<cmd>lua require'dap'.continue()<CR>", desc = "Run/Continue" },
   },
 }

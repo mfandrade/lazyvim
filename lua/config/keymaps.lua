@@ -59,7 +59,8 @@ vim.keymap.set("n", "<F4>", "<C-d>", opts("Scroll Down Half Screen"))
 -- F6 = dap step into
 -- F7 = dap step over
 -- F8 = dap step out
-vim.keymap.set("n", "<S-Down>", "<cmd>lua require'dap'.toggle_breakpoint()<CR>", opts("Toggle Breakpoint"))
+vim.keymap.set("n", "<F9>", "<cmd>lua require'dap'.toggle_breakpoint()<CR>", opts("Toggle Breakpoint"))
+vim.keymap.set("n", "<Up>", "<cmd>lua require'dap'.toggle_breakpoint()<CR>", opts("Toggle Breakpoint"))
 
 -- format selected code
 vim.keymap.set("v", "<leader>cf", function()
