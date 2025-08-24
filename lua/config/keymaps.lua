@@ -28,13 +28,8 @@ vim.keymap.set("n", "<C-g>", function()
 end, opts("Show Current File Path"))
 -- vim.keymap.set("n", "<C-g>", function() print(vim.fn.expand("%:t")) end, ops ) -- ALT
 
+-- Avoid accidental suspension
 vim.keymap.set("n", "<C-z>", "<nop>", opts())
-
--- Avoid arrow keys
-vim.keymap.set("n", "<Up>", ":echoerr 'HJKL!'<CR>", opts())
-vim.keymap.set("n", "<Down>", ":echoerr 'HJKL!'<CR>", opts())
-vim.keymap.set("n", "<Left>", ":echoerr 'HJKL!'<CR>", opts())
-vim.keymap.set("n", "<Right>", ":echoerr 'HJKL!'<CR>", opts())
 
 -- Copy to clipboard with capital Y
 vim.keymap.set("v", "Y", '"+y', opts("Copy Selected Text to Clipboard"))
@@ -64,6 +59,7 @@ vim.keymap.set("n", "<F4>", "<C-d>", opts("Scroll Down Half Screen"))
 -- F6 = dap step into
 -- F7 = dap step over
 -- F8 = dap step out
+vim.keymap.set("n", "<S-Down>", "<cmd>lua require'dap'.toggle_breakpoint()<CR>", opts("Toggle Breakpoint"))
 
 vim.keymap.set("v", "<leader>cf", function()
   require("conform").format({
