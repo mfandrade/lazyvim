@@ -61,6 +61,7 @@ vim.keymap.set("n", "<F4>", "<C-d>", opts("Scroll Down Half Screen"))
 -- F8 = dap step out
 vim.keymap.set("n", "<S-Down>", "<cmd>lua require'dap'.toggle_breakpoint()<CR>", opts("Toggle Breakpoint"))
 
+-- format selected code
 vim.keymap.set("v", "<leader>cf", function()
   require("conform").format({
     async = true,
@@ -71,11 +72,12 @@ vim.keymap.set("v", "<leader>cf", function()
   })
 end, opts("Format Selected Code"))
 
+-- toggle trailing spaces removal
 vim.keymap.set("n", "<leader>t", function()
   vim.g.remove_trailing_spaces = not vim.g.remove_trailing_spaces
   if vim.g.remove_trailing_spaces then
-    echo("Removing trailing spaces")
+    print("Removing trailing spaces")
   else
-    echo("Saving trailing spaces")
+    print("Preserving trailing spaces")
   end
 end, opts("Toggle Trailing Spaces Removal"))
