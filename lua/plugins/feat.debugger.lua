@@ -41,8 +41,8 @@ return {
       })
     end
 
-    require("plugins.dap.golang")
-    require("plugins.dap.javascript")
+    require("plugins.dap.dap-go")
+    require("plugins.dap.dap-javascript")
   end,
   keys = {
     -- { "<F9>", "<cmd>lua require'dap'.toggle_breakpoing()<CR>", desc = "Toggle Breakpoing" },
