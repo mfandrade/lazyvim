@@ -51,6 +51,7 @@ vim.keymap.set("n", "00", "0", opts())
 vim.keymap.set("n", "M", "'", opts("Go To Mark"))
 
 -- F-keys
+vim.keymap.set("i", "<F1>", "<nop>", opts())
 vim.keymap.set({ "n", "v" }, "<F1>", "<C-u>", opts("Scroll Up Half Screen"))
 vim.keymap.set({ "n", "v" }, "<F2>", "<C-y>", opts("Scroll Up One Line"))
 vim.keymap.set({ "n", "v" }, "<F3>", "<C-e>", opts("Scroll Down One Line"))
