@@ -17,40 +17,38 @@ return {
         -- height = 30,
       },
       headers = {
-        user = "   Me ",
-        assistant = "   Copilot ",
-        tool = " 🛠 Tool ",
+        user = "   Me ─",
+        assistant = "   Copilot ─",
+        tool = " 🛠 Tool ─",
       },
-      -- separator = "━━",
-      -- show_folds = true,
     },
     keys = {
-      { "<c-s>", "<CR>", ft = "copilot-chat", desc = "Submit prompt", remap = true },
       { "<leader>a", "", desc = "+ai", mode = { "n", "v" } },
-      { "<leader>aa", ":CopilotChat<CR>", mode = { "n", "v" }, desc = "Copilot Chat" },
-      { "<leader>ax", ":CopilotChatReset<CR>", mode = { "n", "v" }, desc = "Clear chat history" },
+      { "<C-s>", "<CR>", ft = "copilot-chat", desc = "Submit prompt", remap = true },
+      { "<leader>aa", "<cmd>CopilotChat<CR>", mode = { "n", "v" }, desc = "CopilotChat" },
+      { "<leader>ax", "<cmd>CopilotChatReset<CR>", mode = { "n", "v" }, desc = "Clear current chat" },
+      { "<leader>ap", "<cmd>CopilotChatPrompt<CR>", mode = { "n", "v" }, desc = "Predefined prompts" },
+      { "<leader>ae", "<cmd>CopilotChatExplain<CR>", mode = "v", desc = "Explain this code" },
+      { "<leader>ar", "<cmd>CopilotChatReview<CR>", mode = "v", desc = "Review this code" },
+      { "<leader>af", "<cmd>CopilotChatFix<CR>", mode = "v", desc = "Fix this code issues" },
+      { "<leader>ao", "<cmd>CopilotChatOptimize<CR>", mode = "v", desc = "Optimize this code" },
+      { "<leader>ad", "<cmd>CopilotChatDocs<CR>", mode = "v", desc = "Generate docs" },
+      { "<leader>at", "<cmd>CopilotChatTests<CR>", mode = "v", desc = "Generate tests" },
+      { "<leader>am", "<cmd>CopilotChatCommit<CR>", mode = { "n", "v" }, desc = "Generate commit message" },
       {
         "<leader>aq",
         function()
           vim.ui.input({
-            prompt = "Quick chat: ",
+            prompt = "Quick question: ",
           }, function(input)
             if input ~= "" then
               require("CopilotChat").ask(input)
             end
           end)
         end,
+        desc = "Quick question",
         mode = { "n", "v" },
-        desc = "Quick chat",
       },
-      { "<leader>ap", ":CopilotChatPrompt<CR>", mode = { "n", "v" }, desc = "Select prompt" },
-      { "<leader>ae", ":CopilotChatExplain<CR>", mode = "v", desc = "Explain code" },
-      { "<leader>ar", ":CopilotChatReview<CR>", mode = "v", desc = "Review code" },
-      { "<leader>af", ":CopilotChatFix<CR>", mode = "v", desc = "Fix code issues" },
-      { "<leader>ao", ":CopilotChatOptimize<CR>", mode = "v", desc = "Optimize code" },
-      { "<leader>ad", ":CopilotChatDocs<CR>", mode = "v", desc = "Generate docs" },
-      { "<leader>at", ":CopilotChatTests<CR>", mode = "v", desc = "Generate tests" },
-      { "<leader>am", ":CopilotChatCommit<CR>", mode = { "n", "v" }, desc = "Generate commit message" },
     },
   },
 }
