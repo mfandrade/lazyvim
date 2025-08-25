@@ -13,10 +13,43 @@ dap.adapters["pwa-node"] = {
 
 dap.configurations.javascript = {
   {
+    name = "Debug a Node server [--inspect]",
+    type = "pwa-node",
+    request = "attach",
+    port = 9229, -- default adapter port, not server port
+    host = "localhost",
+    cwd = "${workspaceFolder}",
+    skipFiles = { "<node_internals>/**", "node_modules/**" },
+    resolveSourceMapLocations = {
+      "${workspaceFolder}/**",
+      "!**/node_modules/**",
+    },
+  },
+  {
+    name = "Debug Jest tests",
     type = "pwa-node",
     request = "launch",
-    name = "Launch file",
-    program = "${file}",
+    runtimeExecutable = "node",
+    runtimeArgs = {
+      "--inspect",
+      "${workspaceFolder}/node_modules/jest/bin/jest.js",
+      "--runInBand",
+    },
     cwd = "${workspaceFolder}",
+    console = "integratedTerminal",
+    internalConsoleOptions = "neverOpen",
+    sourceMaps = true,
+    skipFiles = { "<node_internals>/**", "node_modules/**" },
+    resolveSourceMapLocations = {
+      "${workspaceFolder}/**",
+      "!**/node_modules/**",
+    },
+  },
+  {
+    name = "Debug a single file",
+    type = "pwa-node",
+    request = "launch",
+    cwd = "${workspaceFolder}",
+    program = "${file}",
   },
 }
