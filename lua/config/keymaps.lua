@@ -83,6 +83,9 @@ vim.keymap.set("n", "<leader>T", function()
   end
 end, opts("Toggle Trailing Spaces Removal"))
 
+-- disable tabline
+vim.keymap.del("n", "<leader>uA")
+
 -- resize panes
 -- vim.keymap.set("n", "<M-h>", "<C-w><") -- Resize left
 -- vim.keymap.set("n", "<M-l>", "<C-w>>") -- Resize right
