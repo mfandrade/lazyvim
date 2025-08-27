@@ -5,10 +5,10 @@ return {
     sections = {
       lualine_c = {
         { "fileformat" },
-        { "filetype" },
+        -- { "filetype" },
         {
           "buffers",
-          hide_filename_extension = true,
+          hide_filename_extension = false,
           mode = 4,
           symbols = {
             modified = " ",
