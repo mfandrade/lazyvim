@@ -74,7 +74,7 @@ vim.keymap.set("v", "<leader>cf", function()
 end, opts("Format Selected Code"))
 
 -- toggle trailing spaces removal
-vim.keymap.set("n", "<leader>t", function()
+vim.keymap.set("n", "<leader>T", function()
   vim.g.remove_trailing_spaces = not vim.g.remove_trailing_spaces
   if vim.g.remove_trailing_spaces then
     print("Removing trailing spaces")
