@@ -6,7 +6,15 @@ return {
       lualine_c = {
         { "fileformat" },
         { "filetype" },
-        { "filename" },
+        {
+          "buffers",
+          hide_filename_extension = true,
+          mode = 4,
+          symbols = {
+            modified = " ",
+            alternate_file = "",
+          },
+        },
       },
       lualine_z = {},
     },

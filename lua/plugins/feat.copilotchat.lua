@@ -17,9 +17,9 @@ return {
         -- height = 30,
       },
       headers = {
-        user = "   Me ",
-        assistant = "   Copilot ",
-        tool = " 🛠 Tool ",
+        user = "   Me ─",
+        assistant = "   Copilot ─",
+        tool = " 🛠 Tool ─",
       },
       -- separator = "━━",
       -- show_folds = true,
