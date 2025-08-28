@@ -2,22 +2,23 @@
 -- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
 -- Add any additional options here
 
-vim.opt.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
-
--- Don't sync clipboard with system
+-- don't sync clipboard with system
 vim.opt.clipboard = ""
 
--- Time to differentiate double strokes keymaps
+-- tilde is an operator
+vim.opt.tildeop = true
+
+-- time to differentiate double strokes keymaps
 vim.opt.timeoutlen = 150
 
--- Easier to read file contents
-vim.opt.scrolloff = 4
+-- easier to read file contents
+vim.opt.scrolloff = 5
 
--- Enable modelines for flexibility
+-- enable modelines for flexibility
 vim.opt.modeline = true
 vim.opt.modelines = 1
 
--- Define a list for hidden characters
+-- define a list for hidden characters
 vim.opt.showbreak = "↪"
 vim.opt.listchars = {
   eol = "⏎",
@@ -29,3 +30,6 @@ vim.opt.listchars = {
   precedes = "…",
 }
 vim.opt.list = false
+
+-- options to be restored on session
+vim.opt.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
