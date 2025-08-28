@@ -86,6 +86,9 @@ end, opts("Toggle Trailing Spaces Removal"))
 -- disable tabline
 vim.keymap.del("n", "<leader>uA")
 
+-- easier way to close panes
+vim.keymap.set("n", "<leader>X", "<C-w>c", opts("Close current pane"))
+
 -- resize panes
 vim.keymap.set("n", "<M-S-h>", "<C-w>10<", opts("Resize left")) -- Resize left
 vim.keymap.set("n", "<M-S-l>", "<C-w>10>", opts("Resize right")) -- Resize right
