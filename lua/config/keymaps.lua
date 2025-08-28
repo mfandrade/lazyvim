@@ -92,4 +92,4 @@ vim.keymap.set("n", "<M-S-l>", "<C-w>10>", opts("Resize right")) -- Resize right
 vim.keymap.set("n", "<M-S-j>", "<C-w>5+", opts("Resize down")) -- Resize down
 vim.keymap.set("n", "<M-S-k>", "<C-w>5-", opts("Resize up")) -- Resize up
 
-vim.keymap.set("n", '<leader>"', "`.", opts("Back to the previous edited position"))
+vim.keymap.set("n", "<leader>'", "`.", opts("Back to the previous edited position"))
