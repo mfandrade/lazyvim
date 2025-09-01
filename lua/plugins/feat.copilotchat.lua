@@ -41,7 +41,7 @@ return {
           end)
         end,
         mode = { "n", "v" },
-        desc = "Quick chat",
+        desc = "Quick question",
       },
       { "<leader>ap", ":CopilotChatPrompt<CR>", mode = { "n", "v" }, desc = "Select prompt" },
       { "<leader>ae", ":CopilotChatExplain<CR>", mode = "v", desc = "Explain code" },
