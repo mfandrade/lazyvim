@@ -24,7 +24,7 @@ return {
           },
         },
         lualine_c = {
-          { "fileformat" },
+          -- { "fileformat" },
           -- { "filetype" },
           {
             "buffers",
