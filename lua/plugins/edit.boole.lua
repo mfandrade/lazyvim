@@ -17,6 +17,7 @@ return {
         { "Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez" },
         { "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro", },
         { "on", "off" },
+        { "Left", "Down", "Up", "Right"},
         -- stylua: ignore end
       },
       allow_caps_additions = {
