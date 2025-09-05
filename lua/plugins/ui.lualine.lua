@@ -15,17 +15,7 @@ return {
         theme = ok and theme or "auto",
       },
       sections = {
-        lualine_a = {
-          {
-            "mode",
-            fmt = function(str)
-              return string.sub(str, 1, 3):upper()
-            end,
-          },
-        },
         lualine_c = {
-          -- { "fileformat" },
-          -- { "filetype" },
           {
             "buffers",
             hide_filename_extension = false,
@@ -36,7 +26,7 @@ return {
             },
           },
         },
-        lualine_z = {},
+        lualine_x = { "fileencoding", "fileformat" },
       },
     }
   end,
