@@ -1,3 +1,4 @@
+---@diagnostic disable: missing-fields
 return {
   "nvim-neotest/neotest",
   dependencies = {
@@ -6,15 +7,20 @@ return {
     "antoinemadec/FixCursorHold.nvim",
     "nvim-treesitter/nvim-treesitter",
     "marilari88/neotest-vitest",
-    "nvim-neotest/neotest-jest",
+    "mfandrade/neotest-jest", -- bugs fixed
   },
   config = function()
-    ---@diagnostic disable-next-line: missing-fields
     require("neotest").setup({
       settings = { watch = true },
       adapters = {
-        require("neotest-vitest"),
-        require("neotest-jest"),
+        require("neotest-jest")({
+          jestCommand = "npx jest --runInBand --json",
+          jestConfigFile = "jest.config.js",
+          env = { CI = true, NODE_ENV = "test" },
+          cwd = function()
+            return vim.fn.getcwd()
+          end,
+        }),
       },
     })
   end,
