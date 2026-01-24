@@ -54,6 +54,12 @@ map("Y", '"+y', "Yank to system clipboard", "v")
 map("D", '"+d', "Delete to system clipboard", "v")
 map("<leader>Y", "<cmd>%yank +<cr>", "Yank all text to system clipboard") -- no need to select all text
 
+-- maintain selection
+map("<", "<gv", "Indent left", "v")
+map(">", ">gv", "Indent right", "v")
+map("<", "<<", "Indent left")
+map(">", ">>", "Indent right")
+
 -- centralize
 map("n", "nzzzv", "Next result")
 map("N", "Nzzzv", "Prev result")
