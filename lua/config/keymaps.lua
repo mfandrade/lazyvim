@@ -44,14 +44,16 @@ map("c", '"_c', "Change motion")
 map("c", '"_c', "Change selection", "x")
 map("C", '"_c', "Change selection", "x")
 map("cc", '"_cc', "Change current line")
-map("C", '"_C', "Change to end of line")
+map("C", '"_c$', "Change the rest of the line")
 map("s", '"_cl', "Substitute char")
 map("s", '"_cc', "Substitute selection", "x")
 map("S", '"_S', "Substitute line")
 
 -- system clipboard in visual mode
-map("Y", '"+y', "Yank to system clipboard", "v")
+map("D", "d$", "Delete the rest of the line")
 map("D", '"+d', "Delete to system clipboard", "v")
+map("Y", "y$", "Yank the rest of the line")
+map("Y", '"+y', "Yank to system clipboard", "v")
 map("<leader>Y", "<cmd>%yank +<cr>", "Yank all text to system clipboard") -- no need to select all text
 
 -- maintain selection
