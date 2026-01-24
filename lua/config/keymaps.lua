@@ -1,7 +1,4 @@
--- Keymaps are automatically loaded on the VeryLazy event
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
--- Add any additional keymaps here
-
 ---@diagnostic disable: undefined-global
 
 local function map(keycomb, target, desc, mode, opts)
@@ -82,4 +79,19 @@ Snacks.toggle({ name = "Highlight Cursorline",
   get = function() return vim.wo.cursorline end,
   set = function(state) vim.wo.cursorline = state end,
 }):map("<leader>uH")
+Snacks.toggle({ name = "Auto-wrap",
+  get = function() return vim.wo.colorcolumn ~= "" end,
+  set = function(state)
+    local tw = vim.bo.textwidth
+    if state then
+      if tw > 0 then
+        vim.opt_local.formatoptions:append({ "t", "c" })
+        vim.wo.colorcolumn = tostring(tw) or "120"
+      end
+    else
+      vim.opt_local.formatoptions:remove({ "t", "c" })
+      vim.wo.colorcolumn = ""
+    end
+  end,
+}):map("<leader>ua")
 -- stylua: ignore end
