@@ -71,3 +71,15 @@ for i = 1, 9 do
   local desc = string.format("Buffer %s", i)
   map(keycomb, target, desc) -- be sure your terminal sends esc sequences
 end
+
+-- stylua: ignore start
+-- snacks
+Snacks.toggle({ name = "Invisible Chars",
+  get = function() return vim.wo.list end,
+  set = function(state) vim.wo.list = state end,
+}):map("<leader>uv")
+Snacks.toggle({ name = "Highlight Cursorline",
+  get = function() return vim.wo.cursorline end,
+  set = function(state) vim.wo.cursorline = state end,
+}):map("<leader>uH")
+-- stylua: ignore end
