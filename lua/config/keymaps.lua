@@ -2,7 +2,7 @@
 ---@diagnostic disable: undefined-global
 
 local function map(keycomb, target, desc, mode, opts)
-  local options = opts or { noremap = true, silent = false }
+  local options = opts or { noremap = true, silent = true }
   options.desc = desc
   vim.keymap.set(mode or "n", keycomb, target, options)
 end
