@@ -34,12 +34,20 @@ map(",,", "A,<esc>", "Append ,")
 map(";;", "A;<esc>", "Append ;")
 map("\\\\", "A \\<esc>", "Append \\")
 
--- real delete
-map("x", '"_x', "Delete next char")
-map("X", '"_X', "Delete prev char")
-map("_", '"_d', "Delete seltion", "v")
+-- no save to clipboard
+map("x", '"_dl', "Delete right char")
+map("X", '"_dh', "Delete left char")
 map("_", '"_d', "Delete motion")
+map("_", '"_d', "Delete selection", "v")
 map("__", '"_dd', "Delete line")
+map("c", '"_c', "Change motion")
+map("c", '"_c', "Change selection", "x")
+map("C", '"_c', "Change selection", "x")
+map("cc", '"_cc', "Change current line")
+map("C", '"_C', "Change to end of line")
+map("s", '"_cl', "Substitute char")
+map("s", '"_cc', "Substitute selection", "x")
+map("S", '"_S', "Substitute line")
 
 -- system clipboard in visual mode
 map("Y", '"+y', "Yank to system clipboard", "v")
