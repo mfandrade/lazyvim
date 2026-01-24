@@ -80,6 +80,30 @@ map("<a-k>", "<esc><cmd>m .-2<cr>==gi", "Move up", "i")
 map("+", "zo", "Fold open")
 map("-", "zc", "Fold close")
 
+-- splits
+map("<c-h>", "<c-w>h", "Focus on split left")
+map("<c-j>", "<c-w>j", "Focus on split down")
+map("<c-k>", "<c-w>k", "Focus on split up")
+map("<c-l>", "<c-w>l", "Focus on split right")
+
+-- arrows
+local keys = { "left", "right", "up", "down", "pageup", "pagedown", "home", "end" }
+local modes = { "n", "v", "o", "x", "i", "c", "s" }
+for _, mode in ipairs(modes) do
+  for _, key in ipairs(keys) do
+    map("<" .. key .. ">", "<nop>", "Hard mode", mode)
+    map("<c-" .. key .. ">", "<nop>", "Hard mode Ctrl", mode)
+  end
+end
+
+local arrows = { h = "left", j = "down", k = "up", l = "right" }
+local nav_modes = { "v", "o", "x", "i", "c", "s" }
+for _, mode in ipairs(nav_modes) do
+  for key, dir in pairs(arrows) do
+    map("<c-" .. key .. ">", "<" .. dir .. ">", "Cursor " .. dir, mode)
+  end
+end
+
 -- stylua: ignore start
 local function move_no_scrolloff(key)
   local value = vim.o.scrolloff
