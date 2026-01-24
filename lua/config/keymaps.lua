@@ -14,7 +14,7 @@ map("kj", "<esc>", "Normal mode", "i")
 map("<leader>w", "<cmd>write<cr>", "Save")
 map("<leader>W", "<cmd>noautocmd write<cr>", "Save (no autocmds)")
 map("<leader>q", "<cmd>quit<cr>", "Quit")
-map("<leader>Q", "<cmd>quit!<cr>", "Quit without saving")
+map("<leader>Q", "<cmd>quitall!<cr>", "Quit without saving")
 
 -- appends
 map(",,", "A,<esc>", "Append ,")
@@ -95,3 +95,4 @@ Snacks.toggle({ name = "Auto-wrap",
   end,
 }):map("<leader>ua")
 -- stylua: ignore end
+--
