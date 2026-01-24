@@ -74,6 +74,10 @@ map("<a-k>", ":m '<-2<cr>gv=gv", "Move lines up", "v")
 map("<a-j>", "<esc><cmd>m .+1<cr>==gi", "Move down", "i")
 map("<a-k>", "<esc><cmd>m .-2<cr>==gi", "Move up", "i")
 
+-- folding
+map("+", "zo", "Fold open")
+map("-", "zc", "Fold close")
+
 -- stylua: ignore start
 local function move_no_scrolloff(key)
   local value = vim.o.scrolloff
