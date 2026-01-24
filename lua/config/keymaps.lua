@@ -7,6 +7,19 @@ local function map(keycomb, target, desc, mode, opts)
   vim.keymap.set(mode or "n", keycomb, target, options)
 end
 
+-- help
+map("<f1>", function()
+  local cw = vim.fn.expand("<cword>")
+  if cw ~= "" and vim.fn.hlexists(cw) == 0 then
+    local ok = cw ~= "" and pcall(function()
+      vim.cmd("silent help " .. cw)
+    end)
+    if not ok then
+      vim.api.nvim_input(":help ")
+    end
+  end
+end, "Help")
+
 -- normal mode
 map("kj", "<esc>", "Normal mode", "i")
 
