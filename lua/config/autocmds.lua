@@ -17,4 +17,37 @@ vim.api.nvim_del_augroup_by_name("lazyvim_json_conceal")
 
 -- Or add any additional autocmds here
 -- with `vim.api.nvim_create_autocmd`
---
+
+vim.api.nvim_create_autocmd("BufWinEnter", {
+  group = vim.api.nvim_create_augroup("floating_help", { clear = true }),
+  pattern = "*.txt",
+  callback = function()
+    if vim.bo.filetype ~= "help" then
+      return
+    end
+
+    if vim.api.nvim_win_get_config(0).relative ~= "" then
+      return
+    end
+
+    local buf = vim.api.nvim_get_current_buf()
+    vim.api.nvim_win_close(0, true)
+
+    vim.opt_local.scrolloff = 0
+    local stats = vim.api.nvim_list_uis()[1]
+    local width = math.floor(stats.width * 0.6)
+    local height = math.floor(stats.height * 0.8)
+
+    vim.api.nvim_open_win(buf, true, {
+      relative = "editor",
+      width = width,
+      height = height,
+      col = math.floor((stats.width - width) / 2),
+      row = math.floor((stats.height - height) / 2),
+      style = "minimal",
+      border = "rounded",
+    })
+
+    vim.keymap.set("n", "<esc>", ":q<cr>", { buffer = buf, silent = true })
+  end,
+})
