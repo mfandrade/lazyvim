@@ -1,6 +1,6 @@
 ---@diagnostic disable: undefined-global
-local filled = { "󰲠", "󰲢", "󰲤", "󰲦", "󰲨", "󰲪", "󰲬", "󰲮", "󰲰", "󰲲" }
-local hollow = { "󰲡", "󰲣", "󰲥", "󰲧", "󰲩", "󰲫", "󰲭", "󰲯", "󰲱", "󰲳" }
+local filled = { "󰎦 ", "󰎩 ", "󰎬 ", "󰎮 ", "󰎰 ", "󰎵 ", "󰎸 ", "󰎻 ", "󰎾 " }
+local hollow = { "󰎤 ", "󰎧 ", "󰎪 ", "󰎭 ", "󰎱 ", "󰎳 ", "󰎶 ", "󰎹 ", "󰎼 " }
 
 return {
   { "akinsho/bufferline.nvim", enabled = false },
