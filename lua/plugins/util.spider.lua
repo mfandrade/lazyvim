@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-global
 return {
   {
     "chrisgrieser/nvim-spider",
@@ -10,6 +11,7 @@ return {
   },
   {
     "tris203/precognition.nvim",
+    event = "VeryLazy",
     opts = { startVisible = false },
     -- stylua: ignore start
     config = function(_, opts)

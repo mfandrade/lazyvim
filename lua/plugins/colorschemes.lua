@@ -7,6 +7,7 @@ return {
   },
   {
     "xiyaowong/transparent.nvim",
+    event = "VeryLazy",
     opts = {
       exclude_groups = { "CursorLine" },
       on_clear = function()
