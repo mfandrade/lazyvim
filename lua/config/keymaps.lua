@@ -91,7 +91,7 @@ map("<c-l>", "<c-w>l", "Focus on split right")
 
 -- arrows
 local keys = { "left", "right", "up", "down", "pageup", "pagedown", "home", "end" }
-local modes = { "n", "v", "o", "x", "i", "c", "s" }
+local modes = { "n", "v", "o", "x", "i", "s" }
 for _, mode in ipairs(modes) do
   for _, key in ipairs(keys) do
     map("<" .. key .. ">", "<nop>", "Hard mode", mode)
@@ -100,7 +100,7 @@ for _, mode in ipairs(modes) do
 end
 
 local arrows = { h = "left", j = "down", k = "up", l = "right" }
-local nav_modes = { "v", "o", "x", "i", "c", "s" }
+local nav_modes = { "v", "o", "x", "i", "s" }
 for _, mode in ipairs(nav_modes) do
   for key, dir in pairs(arrows) do
     map("<c-" .. key .. ">", "<" .. dir .. ">", "Cursor " .. dir, mode)
