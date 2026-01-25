@@ -4,7 +4,7 @@
 vim.opt.textwidth = 120
 
 -- stylua: ignore start
-vim.opt.list = true
+vim.opt.list = false
 vim.opt.listchars = {
   tab      = "» ",
   space    = "·",
