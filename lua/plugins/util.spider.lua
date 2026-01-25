@@ -25,7 +25,7 @@ return {
           if state then pre.show()
           else pre.hide() end
         end,
-      }):map("<leader>uP")
+      }):map("<leader>up")
     end,
     -- stylua: ignore end
   },

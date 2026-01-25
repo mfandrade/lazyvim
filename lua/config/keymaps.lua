@@ -174,4 +174,9 @@ Snacks.toggle.new({
         else vim.cmd("TransparentDisable") end
     end,
 }):map("<leader>ut")
+
+Snacks.toggle({ name = "Mini Pairs",
+  get = function() return not vim.g.minipairs_disable end,
+  set = function(state) vim.g.minipairs_disable = not state end,
+}):map("<leader>uP")
 -- stylua: ignore end
