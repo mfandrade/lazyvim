@@ -11,6 +11,10 @@ return {
       animate = { enabled = false },
     },
     picker = {
+      exclude = {
+        ".git",
+        "node_modules",
+      },
       sources = {
         explorer = {
           layout = {
