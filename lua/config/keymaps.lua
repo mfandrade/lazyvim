@@ -147,10 +147,12 @@ Snacks.toggle({ name = "Invisible Chars",
   get = function() return vim.wo.list end,
   set = function(state) vim.wo.list = state end,
 }):map("<leader>uv")
+
 Snacks.toggle({ name = "Highlight Cursorline",
   get = function() return vim.wo.cursorline end,
   set = function(state) vim.wo.cursorline = state end,
 }):map("<leader>uH")
+
 Snacks.toggle({ name = "Auto-wrap",
   get = function() return vim.wo.colorcolumn ~= "" end,
   set = function(state)
@@ -166,12 +168,12 @@ Snacks.toggle({ name = "Auto-wrap",
     end
   end,
 }):map("<leader>ua")
-Snacks.toggle.new({
-    name = "Transparency",
+
+Snacks.toggle({ name = "Transparency",
     get = function() return vim.g.transparent_enabled end,
     set = function(state)
-        if state then vim.cmd("TransparentEnable")
-        else vim.cmd("TransparentDisable") end
+      if state then vim.cmd("TransparentEnable")
+      else vim.cmd("TransparentDisable") end
     end,
 }):map("<leader>ut")
 
