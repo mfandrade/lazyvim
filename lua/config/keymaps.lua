@@ -130,7 +130,6 @@ for i = 1, 9 do
 end
 
 -- stylua: ignore start
--- snacks
 Snacks.toggle({ name = "Invisible Chars",
   get = function() return vim.wo.list end,
   set = function(state) vim.wo.list = state end,
@@ -154,5 +153,12 @@ Snacks.toggle({ name = "Auto-wrap",
     end
   end,
 }):map("<leader>ua")
+Snacks.toggle.new({
+    name = "Transparency",
+    get = function() return vim.g.transparent_enabled end,
+    set = function(state)
+        if state then vim.cmd("TransparentEnable")
+        else vim.cmd("TransparentDisable") end
+    end,
+}):map("<leader>ut")
 -- stylua: ignore end
---
