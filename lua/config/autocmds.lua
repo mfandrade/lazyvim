@@ -22,6 +22,9 @@ vim.api.nvim_create_autocmd("BufWinEnter", {
   group = vim.api.nvim_create_augroup("floating_help", { clear = true }),
   pattern = "*.txt",
   callback = function()
+    local W = 0.6
+    local H = 0.8
+
     if vim.bo.filetype ~= "help" then
       return
     end
@@ -35,8 +38,8 @@ vim.api.nvim_create_autocmd("BufWinEnter", {
 
     vim.opt_local.scrolloff = 0
     local stats = vim.api.nvim_list_uis()[1]
-    local width = math.floor(stats.width * 0.6)
-    local height = math.floor(stats.height * 0.8)
+    local width = math.floor(stats.width * W)
+    local height = math.floor(stats.height * H)
 
     vim.api.nvim_open_win(buf, true, {
       relative = "editor",
