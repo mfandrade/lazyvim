@@ -26,11 +26,12 @@ end, "Help!")
 -- normal mode
 map("kj", "<esc>", "Normal mode", "i")
 
--- quick esc and quick save
+-- saves and quits
 map("<leader>w", "<cmd>write<cr>", "Save")
 map("<leader>W", "<cmd>noautocmd write<cr>", "Save (no autocmds)")
 map("<leader>q", "<cmd>quit<cr>", "Quit")
 map("<leader>Q", "<cmd>quitall!<cr>", "Quit without saving")
+map("<leader>X", "<cmd>xit!<cr>", "Save and quit")
 
 -- appends
 map(",,", "A,<esc>", "Append ,")
