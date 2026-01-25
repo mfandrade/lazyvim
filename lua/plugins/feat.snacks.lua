@@ -1,7 +1,15 @@
+---@diagnostic disable: undefined-global
 return {
   "folke/snacks.nvim",
   opts = {
-    animate = { enabled = false },
+    indent = {
+      enabled = true,
+      animate = { enabled = false },
+    },
+    scope = {
+      enabled = true,
+      animate = { enabled = false },
+    },
     picker = {
       sources = {
         explorer = {
