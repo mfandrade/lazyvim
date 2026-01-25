@@ -3,6 +3,8 @@
 
 vim.opt.textwidth = 120
 
+vim.opt.clipboard = "unnamed"
+
 vim.opt.foldlevel = 99
 vim.opt.foldtext = ""
 vim.opt.foldmethod = "expr"

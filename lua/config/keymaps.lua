@@ -55,10 +55,10 @@ map("S", '"_S', "Substitute line")
 
 -- system clipboard in visual mode
 map("D", "d$", "Delete the rest of the line")
-map("D", '"+d', "Delete to system clipboard", "v")
+map("D", '"+d', "Delete to clipboard", "v")
 map("Y", "y$", "Yank the rest of the line")
-map("Y", '"+y', "Yank to system clipboard", "v")
-map("<leader>Y", "<cmd>%yank +<cr>", "Yank all text to system clipboard") -- no need to select all text
+map("Y", '"+y', "Yank to clipboard", "v")
+map("<leader>Y", "<cmd>%yank +<cr>", "Yank all text to clipboard") -- no need to select all text
 
 -- maintain selection
 map("<", "<gv", "Indent left", "v")
