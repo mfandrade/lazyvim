@@ -9,24 +9,22 @@ return {
     },
     opts = {},
   },
-  {
-    "tris203/precognition.nvim",
-    event = "VeryLazy",
-    opts = { startVisible = false },
-    -- stylua: ignore start
-    config = function(_, opts)
-      local pre = require("precognition")
-      pre.setup(opts)
-      local is_enabled = opts.startVisible
-      Snacks.toggle({ name = "Precognition",
-        get = function() return is_enabled end,
-        set = function(state)
-          is_enabled = state
-          if state then pre.show()
-          else pre.hide() end
-        end,
-      }):map("<leader>up")
-    end,
-    -- stylua: ignore end
-  },
+  -- {
+  --   "tris203/precognition.nvim",
+  --   event = "VeryLazy",
+  --   opts = { startVisible = false },
+  --   config = function(_, opts)
+  --     local pre = require("precognition")
+  --     pre.setup(opts)
+  --     -- stylua: ignore start
+  --     Snacks.toggle({ name = "Precognition",
+  --       get = function() return opts.startVisible end,
+  --       set = function(state)
+  --         if state then pre.show()
+  --         else pre.hide() end
+  --       end,
+  --     -- stylua: ignore end
+  --     }):map("<leader>up")
+  --   end,
+  -- },
 }
