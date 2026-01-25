@@ -136,10 +136,12 @@ map("M", "M", "Mid line")
 map("<a-l>", vim.cmd.bnext, "Next buffer")
 map("<a-h>", vim.cmd.bprev, "Prev buffer")
 for i = 1, 9 do
-  local keycomb = string.format("<a-%s>", i)
-  local target = string.format("<cmd>BufferLineGoToBuffer %s<cr>", i)
-  local desc = string.format("Buffer %s", i)
-  map(keycomb, target, desc) -- be sure your terminal sends esc sequences
+  map(string.format("<a-%s>", i), function()
+    local bufs = vim.fn.getbufinfo({ buflisted = 1 })
+    if bufs[i] then
+      vim.api.nvim_set_current_buf(bufs[i].bufnr)
+    end
+  end, "Buffer #" .. i)
 end
 
 -- stylua: ignore start
