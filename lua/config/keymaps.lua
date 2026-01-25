@@ -9,16 +9,19 @@ end
 
 -- help
 map("<f1>", function()
+  Snacks.picker.help()
+end, "Help")
+map("<f1><f1>", function()
   local cw = vim.fn.expand("<cword>")
   if cw ~= "" and vim.fn.hlexists(cw) == 0 then
     local ok = cw ~= "" and pcall(function()
-      vim.cmd("silent help " .. cw)
+      vim.cmd("help " .. cw)
     end)
     if not ok then
-      vim.api.nvim_input(":help ")
+      vim.cmd("help")
     end
   end
-end, "Help")
+end, "Help!")
 
 -- normal mode
 map("kj", "<esc>", "Normal mode", "i")

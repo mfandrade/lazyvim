@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-global
 -- Default autocmds that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/autocmds.lua
 -- * lazyvim_checktime
 -- * lazyvim_highlight_yank
@@ -19,7 +20,7 @@ vim.api.nvim_del_augroup_by_name("lazyvim_json_conceal")
 -- with `vim.api.nvim_create_autocmd`
 
 vim.api.nvim_create_autocmd("BufWinEnter", {
-  group = vim.api.nvim_create_augroup("floating_help", { clear = true }),
+  group = vim.api.nvim_create_augroup("FloatingHelp", { clear = true }),
   pattern = "*.txt",
   callback = function()
     local W = 0.6
@@ -52,5 +53,6 @@ vim.api.nvim_create_autocmd("BufWinEnter", {
     })
 
     vim.keymap.set("n", "<esc>", ":q<cr>", { buffer = buf, silent = true })
+    vim.keymap.set("n", "q", ":q<cr>", { buffer = buf, silent = true })
   end,
 })
