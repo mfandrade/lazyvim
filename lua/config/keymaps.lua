@@ -80,8 +80,10 @@ map("<a-j>", "<esc><cmd>m .+1<cr>==gi", "Move down", "i")
 map("<a-k>", "<esc><cmd>m .-2<cr>==gi", "Move up", "i")
 
 -- folding
-map("+", "zo", "Fold open")
-map("-", "zc", "Fold close")
+map("+", "zo", "Open fold")
+map("-", "zc", "Close fold")
+map("z+", "zR", "Open all folds in file")
+map("z-", "zM", "Close all folds in file")
 
 -- splits
 map("<c-h>", "<c-w>h", "Focus on split left")

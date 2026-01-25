@@ -3,6 +3,13 @@
 
 vim.opt.textwidth = 120
 
+vim.opt.foldlevel = 99
+vim.opt.foldtext = ""
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "v:lua.vim.lsp.foldexpr()"
+vim.opt.viewoptions = "folds,cursor"
+vim.opt.sessionoptions = { "buffers", "curdir", "tabpages", "winsize", "help", "globals", "folds" }
+
 -- stylua: ignore start
 vim.opt.list = false
 vim.opt.listchars = {
