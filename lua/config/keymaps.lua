@@ -86,11 +86,21 @@ map("-", "zc", "Close fold")
 map("z+", "zR", "Open all folds in file")
 map("z-", "zM", "Close all folds in file")
 
--- splits
-map("<c-h>", "<c-w>h", "Focus on split left")
-map("<c-j>", "<c-w>j", "Focus on split down")
-map("<c-k>", "<c-w>k", "Focus on split up")
-map("<c-l>", "<c-w>l", "Focus on split right")
+-- splits / vim-tmux-navigator
+local function tmux_navigate(direction)
+  local win = vim.api.nvim_get_current_win()
+  vim.cmd("wincmd " .. direction)
+  if win == vim.api.nvim_get_current_win() then
+    local tmux_dir = { h = "L", j = "D", k = "U", l = "R" }
+    os.execute("tmux select-pane -" .. tmux_dir[direction])
+  end
+end
+-- stylua: ignore start
+map("<c-h>", function() tmux_navigate("h") end, "Navigate left")
+map("<c-j>", function() tmux_navigate("j") end, "Navigate down")
+map("<c-k>", function() tmux_navigate("k") end, "Navigate up")
+map("<c-l>", function() tmux_navigate("l") end, "Navigate right")
+-- stylua: ignore end
 
 -- arrows
 local keys = { "left", "right", "up", "down", "pageup", "pagedown", "home", "end" }
