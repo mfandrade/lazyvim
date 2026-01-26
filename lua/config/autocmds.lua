@@ -19,40 +19,44 @@ vim.api.nvim_del_augroup_by_name("lazyvim_json_conceal")
 -- Or add any additional autocmds here
 -- with `vim.api.nvim_create_autocmd`
 
+local function augroup(name)
+  return vim.api.nvim_create_augroup("autocmds_" .. name, { clear = true })
+end
+
+-- floating_help
 vim.api.nvim_create_autocmd("BufWinEnter", {
-  group = vim.api.nvim_create_augroup("FloatingHelp", { clear = true }),
-  pattern = "*.txt",
+  group = augroup("floating_help"),
+  pattern = "*",
   callback = function()
-    local W = 0.6
-    local H = 0.8
+    local WIDTH = 0.6
+    local HEIGHT = 0.6
 
-    if vim.bo.filetype ~= "help" then
+    if vim.bo.buftype ~= "help" then
       return
     end
 
-    if vim.api.nvim_win_get_config(0).relative ~= "" then
-      return
-    end
+    vim.opt_local.scrolloff = 0 -- from now on just options for the help window
 
-    local buf = vim.api.nvim_get_current_buf()
-    vim.api.nvim_win_close(0, true)
+    local width = vim.o.columns
+    local height = vim.o.lines
 
-    vim.opt_local.scrolloff = 0
-    local stats = vim.api.nvim_list_uis()[1]
-    local width = math.floor(stats.width * W)
-    local height = math.floor(stats.height * H)
+    local win_width = math.ceil(width * WIDTH)
+    local win_height = math.ceil(height * HEIGHT)
+    local row = math.ceil((height - win_height) / 2)
+    local col = math.ceil((width - win_width) / 2)
 
-    vim.api.nvim_open_win(buf, true, {
+    vim.api.nvim_win_set_config(0, { -- force the current help window to become a float
       relative = "editor",
-      width = width,
-      height = height,
-      col = math.floor((stats.width - width) / 2),
-      row = math.floor((stats.height - height) / 2),
+      width = win_width,
+      height = win_height,
+      row = row,
+      col = col,
       style = "minimal",
       border = "rounded",
     })
 
-    vim.keymap.set("n", "<esc>", ":q<cr>", { buffer = buf, silent = true })
-    vim.keymap.set("n", "q", ":q<cr>", { buffer = buf, silent = true })
+    local opts = { buffer = true, silent = true, nowait = true }
+    vim.keymap.set("n", "<esc>", "<cmd>quit<cr>", opts)
+    vim.keymap.set("n", "q", "<cmd>quit<cr>", opts)
   end,
 })
