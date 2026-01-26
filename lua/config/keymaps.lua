@@ -25,6 +25,8 @@ end, "Help!")
 
 -- normal mode
 map("kj", "<esc>", "Escape", "i")
+map("0", "^", "Begining of the line (non-blank chars)")
+map("00", "0", "Begining of the line")
 
 -- saves and quits
 map("<leader>w", "<cmd>write<cr>", "Save")
@@ -150,7 +152,6 @@ end
 map("<tab><tab>", function()
   Snacks.picker.buffers()
 end, "Open buffers")
-
 
 -- stylua: ignore start
 Snacks.toggle({ name = "Invisible Chars",
