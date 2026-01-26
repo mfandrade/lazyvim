@@ -1,6 +1,6 @@
 ---@diagnostic disable: undefined-global
-local hollow = { "󰎦 ", "󰎩 ", "󰎬 ", "󰎮 ", "󰎰 ", "󰎵 ", "󰎸 ", "󰎻 ", "󰎾 " }
-local filled = { "󰎤 ", "󰎧 ", "󰎪 ", "󰎭 ", "󰎱 ", "󰎳 ", "󰎶 ", "󰎹 ", "󰎼 " }
+local hollow = { "󰎦 ", "󰎩 ", "󰎬 ", "󰎮 ", "󰎰 " }
+local filled = { "󰎤 ", "󰎧 ", "󰎪 ", "󰎭 ", "󰎱 " }
 
 return {
   { "akinsho/bufferline.nvim", enabled = false },
@@ -23,7 +23,7 @@ return {
 
         for i, bufnr in ipairs(bufs) do
           if i > max_visible then
-            table.insert(res, "󰇊") -- Glifo de continuidade
+            table.insert(res, "󱇬") -- Glifo de continuidade
             break
           end
 
