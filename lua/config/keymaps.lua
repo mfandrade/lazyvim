@@ -135,8 +135,8 @@ map("M", "'", "Go to mark")
 -- stylua: ignore end
 
 -- buffer navigation
-map("<tab>", vim.cmd.bnext, "Next buffer")
-map("<s-tab>", vim.cmd.bprev, "Prev buffer")
+-- map("<tab>", vim.cmd.bnext, "Next buffer")
+-- map("<s-tab>", vim.cmd.bprev, "Prev buffer")
 for i = 1, 5 do
   map("<tab>" .. i, function()
     local bufs = vim.tbl_filter(function(buf)
