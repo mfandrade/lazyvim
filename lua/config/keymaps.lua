@@ -129,7 +129,9 @@ local function move_no_scrolloff(key)
 end
 map("H", function() move_no_scrolloff("H") end, "Home line") -- vim.keymap.del("n", "H")
 map("L", function() move_no_scrolloff("L") end, "Last line") -- vim.keymap.del("n", "L")
-map("M", "M", "Mid line")
+map("'", "<nop>", nil)
+map("M", "'", "Go to mark")
+-- map("M", "M", "Mid line") -- do it as Hzz or Lzz
 -- stylua: ignore end
 
 -- buffer navigation
