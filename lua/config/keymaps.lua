@@ -24,7 +24,7 @@ map("<f1><f1>", function()
 end, "Help!")
 
 -- normal mode
-map("kj", "<esc>", "Normal mode", "i")
+map("kj", "<esc>", "Escape", "i")
 
 -- saves and quits
 map("<leader>w", "<cmd>write<cr>", "Save")
