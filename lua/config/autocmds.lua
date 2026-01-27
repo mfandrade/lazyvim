@@ -24,6 +24,13 @@ local function augroup(name)
 end
 
 -- floating_help
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "*",
+  callback = function()
+    vim.opt_local.formatoptions:remove({ "o" })
+  end,
+})
+
 vim.api.nvim_create_autocmd("BufWinEnter", {
   group = augroup("floating_help"),
   pattern = "*",
