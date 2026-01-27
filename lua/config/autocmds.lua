@@ -31,6 +31,23 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+-- Manage cursorline visibility based on window focus
+local cursorline_control = augroup("cursorline_control")
+
+vim.api.nvim_create_autocmd({ "WinEnter", "BufEnter" }, {
+  group = cursorline_control,
+  callback = function()
+    vim.opt_local.cursorline = true
+  end,
+})
+
+vim.api.nvim_create_autocmd({ "WinLeave", "BufLeave" }, {
+  group = cursorline_control,
+  callback = function()
+    vim.opt_local.cursorline = false
+  end,
+})
+
 -- Open help files in a floating window
 vim.api.nvim_create_autocmd("BufWinEnter", {
   group = augroup("floating_help"),
