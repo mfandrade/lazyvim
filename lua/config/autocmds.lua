@@ -23,7 +23,7 @@ local function augroup(name)
   return vim.api.nvim_create_augroup("autocmds_" .. name, { clear = true })
 end
 
--- floating_help
+-- Change formatoptions to not continue comments on new lines
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "*",
   callback = function()
@@ -31,6 +31,7 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+-- Open help files in a floating window
 vim.api.nvim_create_autocmd("BufWinEnter", {
   group = augroup("floating_help"),
   pattern = "*",
