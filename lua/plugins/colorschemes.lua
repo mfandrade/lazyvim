@@ -4,9 +4,6 @@ return {
     "folke/tokyonight.nvim",
     lazy = false,
     priority = 1000,
-    opts = {
-      transparent = true,
-    },
   },
   {
     "xiyaowong/transparent.nvim",
@@ -25,10 +22,5 @@ return {
       end,
     },
   },
-  {
-    "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "tokyonight",
-    },
-  },
+  { "LazyVim/LazyVim", opts = { colorscheme = "tokyonight" } },
 }
