@@ -6,6 +6,11 @@ return {
     priority = 1000,
   },
   {
+    "rebelot/kanagawa.nvim",
+    lazy = false,
+    priority = 1000,
+  },
+  {
     "xiyaowong/transparent.nvim",
     event = "VeryLazy",
     opts = {

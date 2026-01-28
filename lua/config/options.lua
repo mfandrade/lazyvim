@@ -1,6 +1,6 @@
 -- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
 ---@diagnostic disable: undefined-global
----stylua: ignore start
+-- stylua: ignore start
 
 vim.g.have_nerd_font = true
 
@@ -36,6 +36,7 @@ indent.expandtab = true				 -- Convert tabs to spaces
 indent.smarttab = true				 -- Make tab inserting smarter
 indent.autoindent = true			 -- Copy indent from current line when starting a new one
 indent.smartindent = true			 -- Insert indents automatically in specific contexts
+indent.list = false					 -- Default to not show invisible chars
 indent.listchars = {				 -- How to show invisible chars
   tab      = "» ",
   space    = "·",
@@ -78,5 +79,5 @@ backup.backup = false				 -- Don't create a backup file before overwriting a fil
 backup.writebackup = false			 -- Don't make a backup before overwriting a file
 backup.swapfile = false				 -- Don't use swapfiles (can be risky, but cleaner)
 
--- vim:noet:ts=4:sw=4:sts=4
 -- stylua: ignore end
+-- vim:noet:ts=4:sw=4:sts=4
