@@ -1,12 +1,13 @@
 ---@diagnostic disable: undefined-global
 return {
   {
-    "folke/tokyonight.nvim",
-    lazy = false,
+    "catppuccin/nvim",
+    lazy = true,
     priority = 1000,
+    enabled = false,
   },
   {
-    "rebelot/kanagawa.nvim",
+    "folke/tokyonight.nvim",
     lazy = false,
     priority = 1000,
   },
