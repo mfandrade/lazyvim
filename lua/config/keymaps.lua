@@ -139,20 +139,20 @@ map("M", "'", "Go to mark")
 -- buffer navigation
 -- map("<tab>", vim.cmd.bnext, "Next buffer")
 -- map("<s-tab>", vim.cmd.bprev, "Prev buffer")
-for i = 1, 5 do
-  map("<tab>" .. i, function()
-    local bufs = vim.tbl_filter(function(buf)
-      return vim.api.nvim_buf_is_valid(buf) and vim.bo[buf].buflisted and vim.bo[buf].buftype == ""
-    end, vim.api.nvim_list_bufs())
-    if bufs[i] then
-      vim.api.nvim_set_current_buf(bufs[i])
-    end
-  end, "Buffer #" .. i)
-end
-map("<tab><tab>", function()
-  Snacks.picker.buffers()
-end, "Open buffers")
-
+-- for i = 1, 5 do
+--   map("<tab>" .. i, function()
+--     local bufs = vim.tbl_filter(function(buf)
+--       return vim.api.nvim_buf_is_valid(buf) and vim.bo[buf].buflisted and vim.bo[buf].buftype == ""
+--     end, vim.api.nvim_list_bufs())
+--     if bufs[i] then
+--       vim.api.nvim_set_current_buf(bufs[i])
+--     end
+--   end, "Buffer #" .. i)
+-- end
+-- map("<tab><tab>", function()
+--   Snacks.picker.buffers()
+-- end, "Open buffers")
+--
 -- stylua: ignore start
 Snacks.toggle({ name = "Invisible Chars",
   get = function() return vim.wo.list end,
