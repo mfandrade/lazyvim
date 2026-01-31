@@ -1,6 +1,9 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 ---@diagnostic disable: undefined-global
 
+vim.g.mapleader = " "
+vim.g.maplocalleader = "\\"
+
 local function map(keycomb, target, desc, mode, opts)
   local options = opts or { noremap = true, silent = true }
   options.desc = desc
