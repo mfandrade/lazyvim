@@ -1,7 +1,6 @@
--- vim: foldmethod=marker
+-- vim: foldmethod=marker foldlevel=0
 require("options")
 require("keymaps")
-
 -- Bootstrap lazy.nvim {{{
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
@@ -18,6 +17,6 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
   end
 end
 vim.opt.rtp:prepend(lazypath)
-
--- Setup lazy.nvim }}}
 require("lazy").setup("plugins")
+-- }}}
+vim.cmd.colorscheme "tokyonight"
