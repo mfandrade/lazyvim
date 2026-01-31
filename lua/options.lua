@@ -79,5 +79,9 @@ backup.backup = false				 -- Don't create a backup file before overwriting a fil
 backup.writebackup = false			 -- Don't make a backup before overwriting a file
 backup.swapfile = false				 -- Don't use swapfiles (can be risky, but cleaner)
 
+vim.g.loaded_perl_provider = 0
+vim.g.loaded_ruby_provider = 0
+vim.g.loaded_python_provider = 0
+
 -- stylua: ignore end
 -- vim:noet:ts=4:sw=4:sts=4
