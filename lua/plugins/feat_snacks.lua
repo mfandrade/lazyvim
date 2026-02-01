@@ -1,29 +1,15 @@
----@diagnostic disable: undefined-global
 return {
   "folke/snacks.nvim",
+  priority = 1000,
+  lazy = false,
   opts = {
-    indent = {
-      enabled = true,
-      animate = { enabled = false },
-    },
-    scope = {
-      enabled = true,
-      animate = { enabled = false },
-    },
+    dashboard = { enabled = false },
+    indent = { enabled = true, animate = { enabled = false } },
+    scope = { enabled = true, animate = { enabled = false } },
     picker = {
-      exclude = {
-        ".git",
-        "node_modules",
-      },
-      sources = {
-        explorer = {
-          layout = {
-            layout = {
-              position = "right",
-            },
-          },
-        },
-      },
+      enabled = true,
+      filter = { exclude = { ".git", "node_modules" } },
+      sources = { explorer = { layout = { layout = { position = "right" } }, }, },
     },
   },
   keys = {

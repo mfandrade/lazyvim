@@ -1,4 +1,3 @@
----@diagnostic disable: undefined-global
 local hollow = { "󰎦 ", "󰎩 ", "󰎬 ", "󰎮 ", "󰎰 " }
 local filled = { "󰎤 ", "󰎧 ", "󰎪 ", "󰎭 ", "󰎱 " }
 

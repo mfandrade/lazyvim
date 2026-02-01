@@ -1,4 +1,3 @@
----@diagnostic disable: undefined-global
 return {
   {
     "chrisgrieser/nvim-spider",
@@ -17,7 +16,6 @@ return {
       local pre = require("precognition")
       pre.setup(opts)
 
-      -- Rastreia o estado internamente para o toggle não se perder
       local is_visible = opts.startVisible
 
       Snacks.toggle({

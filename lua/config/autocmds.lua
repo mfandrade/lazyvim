@@ -1,4 +1,3 @@
----@diagnostic disable: undefined-global
 -- Default autocmds that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/autocmds.lua
 -- * lazyvim_checktime
 -- * lazyvim_highlight_yank
