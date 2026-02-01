@@ -1,7 +1,8 @@
 local lua = { "lua_ls", "stylua" }
+local js = { "vtsls", "prettier" }
+local py = {}
 
-local servers = lua
--- local servers = vim.iter({ lua, javascript, python }):flatten():totable()
+local servers = vim.iter({ lua, js, py }):flatten():totable()
 return {
   "williamboman/mason.nvim",
   dependencies = {
