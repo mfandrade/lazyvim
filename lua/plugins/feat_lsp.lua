@@ -1,27 +1,25 @@
 return {
   "mason-org/mason.nvim",
-  dependencies = {
-    "mason-org/mason-lspconfig.nvim",
-    "artemave/workspace-diagnostics.nvim",
-  },
+  dependencies = { "artemave/workspace-diagnostics.nvim" },
   opts = {
+    ensure_installed = {
+      "stylua",
+      "shfmt",
+    },
     servers = {
       lua_ls = {
-        settings = { Lua = { diagnostics = { globals = { "vim", "Snacks" } } } },
+        settings = {
+          Lua = {
+            diagnostics = { globals = { "vim" } },
+            hint = { arrayIndex = "disable" },
+          },
+        },
       },
-      ts_ls = {
+      vtsls = {
         on_attach = function(client, bufnr)
           require("workspace-diagnostics").populate_workspace_diagnostics(client, bufnr)
         end,
       },
     },
   },
-  config = function(_, opts)
-    require("mason").setup()
-    require("mason-lspconfig").setup({ ensure_installed = vim.tbl_keys(opts.servers) })
-    for server, config in pairs(opts.servers) do
-      vim.lsp.config(server, config)
-      vim.lsp.enable(server)
-    end
-  end,
 }
