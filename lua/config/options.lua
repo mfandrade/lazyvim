@@ -61,10 +61,10 @@ local folding = vim.opt
 folding.fillchars:append({ foldopen = "", foldclose = "", foldsep = "|", fold = " " })
 folding.foldtext = ""							 -- Character to connect foldable lines
 folding.foldlevel = 99							 -- Open all folds by default
-folding.foldcolumn = "0"						 -- Fold will be handled by Snacks
+folding.foldcolumn = "1"						 -- Fold will be handled by Snacks
 folding.foldmethod = "expr"						 -- Use expression for folding
 folding.foldexpr = "v:lua.vim.lsp.foldexpr()"	 -- Use LSP for folding
-folding.viewoptions = "folds,cursor"			 -- When using view, folds are persisted
+folding.viewoptions = "folds,cursor,curdir"		 -- When using view, folds are persisted
 folding.sessionoptions = { "buffers", "curdir", "tabpages", "winsize", "help", "globals", "folds" }
 
 local undo = vim.opt
