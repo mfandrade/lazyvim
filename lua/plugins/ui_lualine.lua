@@ -3,7 +3,7 @@ return {
   {
     "nvim-lualine/lualine.nvim",
     opts = function(_, opts)
-      opts.options.section_separators = { left = "", right = "" }
+      opts.options.section_separators = { left = "", right = "" } -- { left = "", right = "" }
       opts.options.component_separators = { left = "", right = "" }
       opts.options.globalstatus = true
 
@@ -18,7 +18,7 @@ return {
           return string.format(" %d/%d", bufid, total)
         end,
       }
-      opts.sections.lualine_z = { "%p%%/%L", "%l:%c" }
+      opts.sections.lualine_z = { "%l:%c %p%%/%L" }
     end,
   },
 }
