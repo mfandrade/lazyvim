@@ -1,4 +1,3 @@
----@diagnostic disable: undefined-global
 vim.opt_local.expandtab = false -- IMPORTANT!
 vim.opt_local.list = true
 vim.opt_local.shiftwidth = 4
