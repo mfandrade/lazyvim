@@ -8,22 +8,25 @@
 -- * lazyvim_wrap_spell
 -- * lazyvim_json_conceal
 -- * lazyvim_auto_create_dir
---
--- Remove existing autocmds by their group name (which is prefixed with `lazyvim_` for the defaults)
--- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
-
-vim.api.nvim_del_augroup_by_name("lazyvim_close_with_q")
-vim.api.nvim_del_augroup_by_name("lazyvim_json_conceal")
-
--- Or add any additional autocmds here
--- with `vim.api.nvim_create_autocmd`
 
 local function augroup(name)
   return vim.api.nvim_create_augroup("autocmds_" .. name, { clear = true })
 end
 
+local delautocmd = vim.api.nvim_del_augroup_by_name
+local addautocmd = vim.api.nvim_create_autocmd
+
+-- Remove existing autocmds by their group name (which is prefixed with `lazyvim_` for the defaults)
+-- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
+
+delautocmd("lazyvim_close_with_q")
+delautocmd("lazyvim_json_conceal")
+
+-- Or add any additional autocmds here
+-- with `vim.api.nvim_create_autocmd`
+
 -- Change formatoptions to not continue comments on new lines
-vim.api.nvim_create_autocmd("FileType", {
+addautocmd("FileType", {
   pattern = "*",
   callback = function()
     vim.opt_local.formatoptions:remove({ "o" })
@@ -32,15 +35,13 @@ vim.api.nvim_create_autocmd("FileType", {
 
 -- Manage cursorline visibility based on window focus
 local cursorline_control = augroup("cursorline_control")
-
-vim.api.nvim_create_autocmd({ "WinEnter", "BufEnter" }, {
+addautocmd({ "WinEnter", "BufEnter" }, {
   group = cursorline_control,
   callback = function()
     vim.opt_local.cursorline = true
   end,
 })
-
-vim.api.nvim_create_autocmd({ "WinLeave", "BufLeave" }, {
+addautocmd({ "WinLeave", "BufLeave" }, {
   group = cursorline_control,
   callback = function()
     vim.opt_local.cursorline = false
@@ -48,7 +49,7 @@ vim.api.nvim_create_autocmd({ "WinLeave", "BufLeave" }, {
 })
 
 -- Open help files in a floating window
-vim.api.nvim_create_autocmd("BufWinEnter", {
+addautocmd("BufWinEnter", {
   group = augroup("floating_help"),
   pattern = "*",
   callback = function()
