@@ -57,14 +57,22 @@ search.ignorecase = true			 -- Ignore case in search patterns
 search.smartcase = true				 -- Override 'ignorecase' if search pattern contains upper case
 search.inccommand = "nosplit"		 -- Show live preview of substitution in a split window
 
+_G.nr_lines_folded = function()
+  local start_line = vim.fn.getline(vim.v.foldstart)
+  local line_count = vim.v.foldend - vim.v.foldstart
+  local suffix = (" 󰁂 %d "):format(line_count)
+  return start_line .. suffix
+end
+
 local folding = vim.opt
-folding.fillchars:append({ foldopen = "", foldclose = "", foldsep = "|", fold = " " })
-folding.foldtext = ""							 -- Character to connect foldable lines
+folding.foldtext = "v:lua.nr_lines_folded()"	 -- Custom function for fold lines
+folding.fillchars:append({ foldopen = "", foldclose = "", foldsep = "", fold = " " })
 folding.foldlevel = 99							 -- Open all folds by default
-folding.foldcolumn = "1"						 -- Fold will be handled by Snacks
+folding.foldlevelstart = 99						 -- To avoid loading flickering
+folding.foldcolumn = "0"						 -- Fold will be handled by Snacks
 folding.foldmethod = "expr"						 -- Use expression for folding
 folding.foldexpr = "v:lua.vim.lsp.foldexpr()"	 -- Use LSP for folding
-folding.viewoptions = "folds,cursor,curdir"		 -- When using view, folds are persisted
+folding.viewoptions = "folds,curdir"			 -- When using view, folds are persisted
 folding.sessionoptions = { "buffers", "curdir", "tabpages", "winsize", "help", "globals", "folds" }
 
 local undo = vim.opt
