@@ -73,7 +73,6 @@ folding.foldcolumn = "0"						 -- Fold will be handled by Snacks
 folding.foldmethod = "expr"						 -- Use expression for folding
 folding.foldexpr = "v:lua.vim.lsp.foldexpr()"	 -- Use LSP for folding
 folding.viewoptions = "folds,curdir"			 -- When using view, folds are persisted
-folding.sessionoptions = { "buffers", "curdir", "tabpages", "winsize", "help", "globals", "folds" }
 
 local undo = vim.opt
 undo.undofile = true				 -- Save undo history to a file so it persists after closing
