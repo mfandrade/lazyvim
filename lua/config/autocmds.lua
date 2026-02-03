@@ -85,3 +85,31 @@ addautocmd("BufWinEnter", {
     vim.keymap.set("n", "q", "<cmd>quit<cr>", opts)
   end,
 })
+
+-- Make folds persistent
+local folds_persistence = augroup("folds_persistence")
+addautocmd("BufWritePost", {
+  group = folds_persistence,
+  callback = function()
+    if vim.bo.buftype == "" then
+      vim.cmd.mkview()
+    end
+  end,
+})
+
+addautocmd("BufWinEnter", {
+  group = folds_persistence,
+  callback = function()
+    if vim.bo.buftype == "" then
+      -- Schedule sozinho às vezes falha em arquivos de config
+      -- Vamos usar um pequeno delay para garantir que o LSP/Treesitter já "sentou"
+      vim.defer_fn(function()
+        if vim.api.nvim_buf_is_valid(0) then
+          vim.cmd.loadview({ mods = { emsg_silent = true } })
+          -- Reaplica o foldtext caso algum plugin tenha resetado
+          vim.wo.foldtext = "v:lua.custom_fold_text()"
+        end
+      end, 50) -- 50ms é imperceptível, mas estabiliza o carregamento
+    end
+  end,
+})
