@@ -11,14 +11,15 @@ return {
       opts.sections.lualine_a = { { "mode", fmt = function(str) return " " .. str:sub(1, 3):upper() end, } }
       opts.sections.lualine_b = { "branch" }
 
-      opts.sections.lualine_y = {
+      opts.sections.lualine_y = { { require("minuet.lualine") } }
+      opts.sections.lualine_z = {
         function()
           local bufid = vim.api.nvim_get_current_buf()
           local total = #vim.fn.getbufinfo({ buflisted = 1 })
           return string.format(" %d/%d", bufid, total)
         end,
+        "%l:%c %p%%/%L",
       }
-      opts.sections.lualine_z = { "%l:%c %p%%/%L" }
     end,
   },
 }
