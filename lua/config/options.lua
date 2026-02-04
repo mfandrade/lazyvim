@@ -71,7 +71,7 @@ _G.custom_fold_text = function()
   local line_count = vim.v.foldend - vim.v.foldstart
   local word = line_count == 1 and " line" or " lines"
 	--
-  return first_line .. " ↙ " .. line_count .. word
+  return first_line .. "   ↙ " .. line_count .. word
 end
 
 local fold = vim.opt
