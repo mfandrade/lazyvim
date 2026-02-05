@@ -12,8 +12,9 @@ return {
         { "BEGIN", "END" },
       },
       allow_caps_additions = {
-        { "on", "off" }, -- Ramon
+        { "on", "off" },
         { "true", "false" },
+        { "left", "down", "up", "right" },
       },
     })
   end,
