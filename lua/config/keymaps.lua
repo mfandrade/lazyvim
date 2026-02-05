@@ -72,6 +72,16 @@ map("n", "nzzzv", "Next result")
 map("N", "Nzzzv", "Prev result")
 map("<c-d>", "<c-d>zz", "Scroll down")
 map("<c-u>", "<c-u>zz", "Scroll up")
+-- map("<pagedown>", "<c-d>zz", "Scroll down")
+-- map("<pageup>", "<c-u>zz", "Scroll up")
+
+-- move the viewport
+map("<leader>j", "J", "Join lines")
+map("<leader>k", vim.lsp.buf.hover, "Hover documentation") -- NOTE: it will be ovewritten by lspconfig, check there
+map("J", "<c-e>", "Scroll viewport down")
+map("K", "<c-y>", "Scroll viewport up")
+-- map("<down>", "<c-e>", "Scroll viewport down")
+-- map("<up>", "<c-y>", "Scroll viewport up")
 
 -- move lines
 map("<a-j>", "<cmd>m .+1<cr>==", "Move down")
