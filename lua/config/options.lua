@@ -3,6 +3,8 @@
 
 vim.g.have_nerd_font = true
 
+vim.g.snacks_animate = false
+
 local conf = vim.opt
 conf.clipboard = "unnamed"						 -- Don't sync with system clipboard
 conf.mouse = "a"											 -- Enable mouse support for all modes
