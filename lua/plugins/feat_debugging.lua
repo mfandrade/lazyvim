@@ -1,6 +1,7 @@
 return {
   "mfussenegger/nvim-dap",
   dependencies = {
+    { "theHamsta/nvim-dap-virtual-text", opts = {} },
     {
       "igorlfs/nvim-dap-view",
       opts = {
@@ -10,10 +11,6 @@ return {
       },
     },
     {
-      "theHamsta/nvim-dap-virtual-text",
-      opts = {},
-    },
-    {
       "jay-babu/mason-nvim-dap.nvim",
       opts = {
         ensure_installed = { "python", "delve", "js-debug-adapter" },
@@ -21,17 +18,10 @@ return {
       },
     },
   },
-  -- Em vez de sobrescrever config, usamos opts para estender a configuração do LazyVim
-  opts = function()
+  config = function()
     local dap = require("dap")
 
-    -- 1. Utilitários
-    _G.dap_get_args = function()
-      local args_str = vim.fn.input("Arguments: ")
-      return vim.split(args_str, " +")
-    end
-
-    -- 2. Configuração de Ícones (movido do config para cá)
+    -- 1. icons and signs
     local icons = {
       Stopped = { "󰁕 ", "DiagnosticWarn", "DapStoppedLine" },
       Breakpoint = { " ", "DiagnosticInfo" },
@@ -43,7 +33,7 @@ return {
       vim.fn.sign_define("Dap" .. name, { text = sign[1], texthl = sign[2], linehl = sign[3], numhl = sign[3] })
     end
 
-    -- 3. Adaptadores
+    -- 2. adapters
     dap.adapters["pwa-node"] = {
       type = "server",
       host = "localhost",
@@ -57,23 +47,38 @@ return {
       },
     }
 
-    -- 4. Linguagens
+    -- 3. languages conf
     local js_config = {
       {
         type = "pwa-node",
         request = "launch",
-        name = "Debug this file",
-        program = "${file}",
+        name = "Debug Jest Tests",
+        runtimeExecutable = "node",
+        runtimeArgs = {
+          "--experimental-vm-modules",
+          "./node_modules/jest/bin/jest.js",
+          "--runInBand",
+        },
+        rootPath = "${workspaceFolder}",
         cwd = "${workspaceFolder}",
+        console = "integratedTerminal",
         sourceMaps = true,
+      },
+      {
+        type = "pwa-node",
+        request = "launch",
+        name = "Run package.json Script",
+        runtimeExecutable = "npm",
+        runtimeArgs = { "run", "${command:PickProcess}" }, -- TODO: filter process
+        args = { "--inspect-brk" },
+        cwd = "${workspaceFolder}",
+        console = "integratedTerminal",
       },
     }
 
-    dap.configurations.javascript = js_config
-    dap.configurations.typescript = js_config
-
-    -- Retornamos uma tabela vazia ou com configurações globais do DAP se necessário
-    return {}
+    for _, lang in ipairs({ "javascript", "typescript", "javascriptreact", "typescriptreact" }) do
+      dap.configurations[lang] = js_config
+    end
   end,
   -- stylua: ignore
   keys = {
@@ -85,8 +90,7 @@ return {
     { "<c-right>", function() require("dap").step_into() end, desc = "Step Into" },
     { "<c-left>", function() require("dap").step_out() end, desc = "Step Out" },
     { "<c-up>", function() require("dap").restart_frame() end, desc = "Restart" },
-    {
-      "<leader>di",
+    { "<leader>di",
       function()
         require("dap.ui.widgets").hover(nil, { border = "rounded" })
         vim.schedule(function()
@@ -98,8 +102,7 @@ return {
           end
         end)
       end,
-      desc = "Inspect Value",
-    },
+      desc = "Inspect Value", },
     { "<leader>dw", function() local dv = require('dap-view'); dv.add_expr(); dv.open(); dv.jump_to_view("watches") end, desc = "Add to Watch Panel"},
     { "<leader>dv", function() require('dap-view').toggle() end, desc = "Toggle View Panel" },
     { "<leader>dV", function() require('nvim-dap-virtual-text').toggle() end, desc = "Toggle Virtual Text" },
