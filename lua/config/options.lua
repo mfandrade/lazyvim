@@ -20,7 +20,7 @@ line.number = true										 -- Show absolute line number
 line.relativenumber = true						 -- Show relative line number
 
 local editor = vim.opt
-editor.cmdheight = 0									 -- Use 0 lines (moke more room for code)
+editor.cmdheight = 0									 -- Use 0 lines (make more room for code)
 editor.laststatus = 3									 -- Global status bar (just one in background, regardless splits)
 editor.signcolumn = "yes"							 -- Always show the sign column to prevent text shifting
 editor.showtabline = 0								 -- Never show the tab line
@@ -52,7 +52,8 @@ local wrapping = vim.opt
 wrapping.wrap = false									 -- No wrap long lines by default
 wrapping.textwidth = 120							 -- The length of a single line of text before wrapping (when enabled)
 wrapping.breakindent = true						 -- Wrapped lines will retain the same indent
-wrapping.showbreak = "↪ "							 -- String to put at the start of lines that have been wrapped
+wrapping.showbreak = ""								 -- String to put at the start of lines that have been wrapped
+-- wrapping.showbreak = "↪ "							 -- String to put at the start of lines that have been wrapped
 
 local search = vim.opt
 search.ignorecase = true							 -- Ignore case in search patterns
