@@ -93,7 +93,7 @@ map("-", "zc", "Close fold")
 map("z+", "zR", "Open all folds in file")
 map("z-", "zM", "Close all folds in file")
 
--- splits / vim-tmux-navigator
+-- splits / "vim-tmux-navigator" like
 local function tmux_navigate(direction)
   local win = vim.api.nvim_get_current_win()
   vim.cmd("wincmd " .. direction)
@@ -137,8 +137,8 @@ end
 map("H", function() move_no_scrolloff("H") end, "Home line") -- vim.keymap.del("n", "H")
 map("L", function() move_no_scrolloff("L") end, "Last line") -- vim.keymap.del("n", "L")
 map("'", "<nop>", nil)
-map("M", "'", "Go to mark")
--- map("M", "M", "Mid line") -- do it as Hzz or Lzz
+map("M", "'", "Go to line mark")
+-- map("M", "M", "Mid line") -- do it as Hzz or Lzz instead
 -- stylua: ignore end
 
 -- stylua: ignore start
