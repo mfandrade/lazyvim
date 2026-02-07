@@ -18,7 +18,7 @@ return {
       position = "inline",
     },
     paragraph = {
-      left_margin = 2,
+      left_margin = 0,
     },
     bullet = {
       left_pad = 2,
