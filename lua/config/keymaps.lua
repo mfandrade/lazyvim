@@ -70,14 +70,14 @@ map(">", ">>", "Indent right")
 -- centralize
 map("n", "nzzzv", "Next result")
 map("N", "Nzzzv", "Prev result")
-map("<c-u>", "<c-u>zz", "Scroll up")
 map("<c-d>", "<c-d>zz", "Scroll down")
+map("<c-u>", "<c-u>zz", "Scroll up")
 
 -- move the viewport
 map("<leader>j", "J", "Join lines")
-map("<leader>k", vim.lsp.buf.hover, "Hover documentation")
---map("K", "<c-y>", "Scroll viewport up") -- overwritten by lspconfig
---map("J", "<c-e>", "Scroll viewport down") -- overwritten by lspconfig
+map("<leader>k", vim.lsp.buf.hover, "LSP hover documentation")
+map("J", "<c-e>", "Scroll viewport down")
+map("K", "<c-y>", "Scroll viewport up")
 
 -- move lines
 map("<a-j>", "<cmd>m .+1<cr>==", "Move down")
