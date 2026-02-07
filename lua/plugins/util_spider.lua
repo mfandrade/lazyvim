@@ -18,20 +18,17 @@ return {
 
       local is_visible = opts.startVisible
 
+      -- stylua: ignore
       Snacks.toggle({
         name = "Precognition",
-        get = function()
-          return is_visible
-        end,
+        get = function() return is_visible end,
         set = function(state)
           is_visible = state
-          if state then
-            pre.show()
-          else
-            pre.hide()
+          if state then pre.show()
+          else pre.hide()
           end
         end,
-      }):map("<leader>up")
+      }):map("<leader>uP")
     end,
   },
 }

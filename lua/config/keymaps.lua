@@ -168,16 +168,10 @@ Snacks.toggle({ name = "Auto-wrap",
   end,
 }):map("<leader>ua")
 
-Snacks.toggle({ name = "Transparency",
+Snacks.toggle({ name = "Transparent Background",
     get = function() return vim.g.transparent_enabled end,
     set = function(state)
       if state then vim.cmd("TransparentEnable")
       else vim.cmd("TransparentDisable") end
     end,
-}):map("<leader>ut")
-
-Snacks.toggle({ name = "Mini Pairs",
-  get = function() return not vim.g.minipairs_disable end,
-  set = function(state) vim.g.minipairs_disable = not state end,
-}):map("<leader>uP")
--- stylua: ignore end
+}):map("<leader>uB")
