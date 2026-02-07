@@ -10,6 +10,7 @@ return {
       additions = {
         { "start", "end" },
         { "BEGIN", "END" },
+        { "[ ]", "[x]" },
       },
       allow_caps_additions = {
         { "on", "off" },
