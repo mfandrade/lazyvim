@@ -1,14 +1,27 @@
 return {
   {
-    "catppuccin/nvim",
-    lazy = true,
-    priority = 1000,
-    enabled = false,
-  },
-  {
     "folke/tokyonight.nvim",
     lazy = false,
     priority = 1000,
+  },
+  {
+    "catppuccin/nvim",
+    lazy = true,
+    priority = 1000,
+    enabled = true,
+  },
+  {
+    "kdheepak/monochrome.nvim",
+    lazy = true,
+    priority = 1000,
+    enabled = true,
+  },
+  {
+    "projekt0n/github-nvim-theme",
+    name = "github-theme",
+    lazy = true,
+    priority = 1000,
+    enabled = true,
   },
   {
     "xiyaowong/transparent.nvim",
