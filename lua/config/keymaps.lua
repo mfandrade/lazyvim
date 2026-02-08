@@ -24,8 +24,8 @@ end, "Help!")
 
 -- normal mode
 map("kj", "<esc>", "Escape", "i")
-map("0", "^", "Begining of the line (non-blank chars)")
-map("00", "0", "Begining of the line")
+map("0", "^", "Beginning of the line (non-blank chars)")
+map("00", "0", "Beginning of the line")
 
 -- saves and quits
 map("<leader>w", "<cmd>write<cr>", "Save")
@@ -38,7 +38,7 @@ map("<leader>X", "<cmd>xit!<cr>", "Save and quit")
 map(",,", "A,<esc>", "Append ,")
 map(";;", "A;<esc>", "Append ;")
 map("\\\\", "A \\<esc>", "Append \\")
-map("<leader>A", "Gi", "New line at the end of the buffer")
+map("<leader>A", "GA", "Insert at the end of the buffer")
 
 -- no save to clipboard
 map("x", '"_dl', "Delete right char")
@@ -60,7 +60,11 @@ map("D", "d$", "Delete the rest of the line")
 map("D", '"+d', "Delete to clipboard", "v")
 map("Y", "y$", "Yank the rest of the line")
 map("Y", '"+y', "Yank to clipboard", "v")
-map("<leader>Y", "<cmd>%yank +<cr>", "Yank all text to clipboard") -- no need to select all text
+map("<leader>Y", function()
+  local save_cursor = vim.fn.getpos(".")
+  vim.cmd("%yank +") -- no need to select all text
+  vim.fn.setpos(".", save_cursor)
+end, "Yank all text to clipboard")
 
 -- maintain selection
 map("<", "<gv", "Indent left", "v")
@@ -108,7 +112,7 @@ local function tmux_navigate(direction)
   vim.cmd("wincmd " .. direction)
   if win == vim.api.nvim_get_current_win() then
     local tmux_dir = { h = "L", j = "D", k = "U", l = "R" }
-    os.execute("tmux select-pane -" .. tmux_dir[direction])
+    vim.system({ "tmux", "select-pane", "-" .. tmux_dir[direction] }, { detach = true })
   end
 end
 -- stylua: ignore start
