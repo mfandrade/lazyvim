@@ -80,12 +80,20 @@ map("J", "<c-e>", "Scroll viewport down")
 map("K", "<c-y>", "Scroll viewport up")
 
 -- move lines
-map("<a-j>", "<cmd>m .+1<cr>==", "Move down")
-map("<a-k>", "<cmd>m .-2<cr>==", "Move up")
-map("<a-j>", ":m '>+1<cr>gv=gv", "Move lines down", "v")
-map("<a-k>", ":m '<-2<cr>gv=gv", "Move lines up", "v")
-map("<a-j>", "<esc><cmd>m .+1<cr>==gi", "Move down", "i")
-map("<a-k>", "<esc><cmd>m .-2<cr>==gi", "Move up", "i")
+map("<a-j>", "<cmd>move .+1<cr>==", "Move down")
+map("<a-k>", "<cmd>move .-2<cr>==", "Move up")
+map("<a-j>", ":move '>+1<cr>gv=gv", "Move lines down", "v")
+map("<a-k>", ":move '<-2<cr>gv=gv", "Move lines up", "v")
+map("<a-j>", "<esc><cmd>move .+1<cr>==gi", "Move down", "i")
+map("<a-k>", "<esc><cmd>move .-2<cr>==gi", "Move up", "i")
+
+-- duplicate lines
+map("<a-s-j>", "<cmd>copy .<cr>==", "Duplicate down")
+map("<a-s-k>", "<cmd>copy .-1<cr>==", "Duplicate up")
+map("<a-s-j>", ":copy '> <cr>gv=gv", "Duplicate lines down", "v")
+map("<a-s-k>", ":copy '<-1<cr>gv=gv", "Duplicate lines up", "v")
+map("<a-s-j>", "<esc><cmd>copy .<cr>==gi", "Duplicate down", "i")
+map("<a-s-k>", "<esc><cmd>copy .-1<cr>==gi", "Duplicate up", "i")
 
 -- folding
 map("+", "zo", "Open fold")
