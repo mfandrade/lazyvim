@@ -155,14 +155,10 @@ map("M", "'", "Go to line mark")
 -- stylua: ignore end
 
 -- stylua: ignore start
-Snacks.toggle({ name = "Invisible Chars",
-  get = function() return vim.wo.list end,
-  set = function(state) vim.wo.list = state end,
+Snacks.toggle.option("list", { name = "Invisible Chars"
 }):map("<leader>uv")
 
-Snacks.toggle({ name = "Highlight Cursorline",
-  get = function() return vim.wo.cursorline end,
-  set = function(state) vim.wo.cursorline = state end,
+Snacks.toggle.option("cursorline", { name = "Highlight Cursorline"
 }):map("<leader>uH")
 
 Snacks.toggle.option("relativenumber", { name = "Relative Number"
