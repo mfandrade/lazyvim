@@ -165,6 +165,9 @@ Snacks.toggle({ name = "Highlight Cursorline",
   set = function(state) vim.wo.cursorline = state end,
 }):map("<leader>uH")
 
+Snacks.toggle.option("relativenumber", { name = "Relative Number"
+}):map("<leader>uL")
+
 Snacks.toggle({ name = "Auto-wrap",
   get = function() return vim.wo.colorcolumn ~= "" end,
   set = function(state)
