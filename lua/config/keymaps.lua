@@ -69,8 +69,6 @@ end, "Yank all text to clipboard")
 -- maintain selection
 map("<", "<gv", "Indent left", "v")
 map(">", ">gv", "Indent right", "v")
-map("<", "<<", "Indent left")
-map(">", ">>", "Indent right")
 
 -- centralize
 map("n", "nzzzv", "Next result")
