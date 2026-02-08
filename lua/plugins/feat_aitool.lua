@@ -18,17 +18,6 @@ return {
     strategies = {
       chat = {
         adapter = "gemini",
-        variables = {
-          ["buffer"] = {
-            callback = function()
-              return require("codecompanion.helpers.variables.buffer").callback({
-                filter = function(bufnr)
-                  return vim.api.nvim_buf_is_valid(bufnr) and vim.api.nvim_buf_get_name(bufnr) ~= ""
-                end,
-              })
-            end,
-          },
-        },
       },
       inline = { adapter = "gemini" },
     },
