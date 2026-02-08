@@ -38,6 +38,7 @@ map("<leader>X", "<cmd>xit!<cr>", "Save and quit")
 map(",,", "A,<esc>", "Append ,")
 map(";;", "A;<esc>", "Append ;")
 map("\\\\", "A \\<esc>", "Append \\")
+map("<leader>A", "Gi", "New line at the end of the buffer")
 
 -- no save to clipboard
 map("x", '"_dl', "Delete right char")
