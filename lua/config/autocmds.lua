@@ -27,6 +27,7 @@ delautocmd("lazyvim_json_conceal")
 
 -- Change formatoptions to not continue comments on new lines
 addautocmd("FileType", {
+  group = augroup("format_options"),
   pattern = "*",
   callback = function()
     vim.opt_local.formatoptions:remove({ "o" })
