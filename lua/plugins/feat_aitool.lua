@@ -1,11 +1,15 @@
 return {
   {
-
+    "kiddos/gemini.nvim",
+    opts = {},
+  },
+  {
     "olimorris/codecompanion.nvim",
+    enabled = false,
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
-      "hrsh7th/nvim-cmp",
+      "MeanderingProgrammer/render-markdown.nvim",
     },
     keys = {
       { "<leader>aa", "<cmd>CodeCompanionChat Toggle<cr>", desc = "CC: Toggle chat panel" },
@@ -15,6 +19,17 @@ return {
     opts = {
       display = {
         chat = { auto_scroll = false },
+      },
+      adapters = {
+        gemini = function()
+          return require("codecompanion.adapters").extend("gemini", {
+            schema = {
+              model = {
+                default = "gemini-2.0.flash",
+              },
+            },
+          })
+        end,
       },
       strategies = {
         chat = { adapter = "gemini" },
