@@ -60,7 +60,10 @@ map("Y", "y$", "Yank the rest of the line")
 map("Y", '"+y', "Yank to clipboard", "v")
 map("<leader>Y", function()
   local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
-  vim.fn.setreg("+", table.concat(lines, "\n") .. "\n")
+  vim.fn.setreg("+", lines, "V")
+  -- local curpos = vim.api.nvim_win_get_cursor(0)
+  -- vim.cmd("%yank+")
+  -- vim.api.nvim_win_set_cursor(0, curpos)
 end, "Yank all text to clipboard")
 
 -- maintain selection
