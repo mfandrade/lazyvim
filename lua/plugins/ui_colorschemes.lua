@@ -1,27 +1,33 @@
 return {
   {
-    "folke/tokyonight.nvim",
+    "amedoeyes/eyes.nvim",
     lazy = false,
+    priority = 1000,
+  },
+  {
+    "funnyVariable/blank.nvim",
+    lazy = true,
+    priority = 1000,
+  },
+  {
+    "darkvoid-theme/darkvoid.nvim",
+    lazy = true,
+    priority = 1000,
+  },
+  {
+    "Lokaltog/vim-monotone",
+    lazy = true,
     priority = 1000,
   },
   {
     "catppuccin/nvim",
     lazy = true,
     priority = 1000,
-    enabled = true,
   },
   {
-    "kdheepak/monochrome.nvim",
+    "folke/tokyonight.nvim",
     lazy = true,
     priority = 1000,
-    enabled = true,
-  },
-  {
-    "projekt0n/github-nvim-theme",
-    name = "github-theme",
-    lazy = true,
-    priority = 1000,
-    enabled = true,
   },
   {
     "xiyaowong/transparent.nvim",
@@ -40,5 +46,5 @@ return {
       end,
     },
   },
-  { "LazyVim/LazyVim", opts = { colorscheme = "tokyonight" } },
+  { "LazyVim/LazyVim", opts = { colorscheme = "eyes" } },
 }
