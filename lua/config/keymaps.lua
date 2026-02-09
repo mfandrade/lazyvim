@@ -1,5 +1,3 @@
--- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
-
 local function map(keycomb, target, desc, mode, opts)
   local options = opts or { noremap = true, silent = true }
   options.desc = desc
@@ -11,10 +9,10 @@ map("<f1>", function()
   Snacks.picker.help()
 end, "Help")
 map("<f1><f1>", function()
-  local cw = vim.fn.expand("<cword>")
-  if cw ~= "" and vim.fn.hlexists(cw) == 0 then
-    local ok = cw ~= "" and pcall(function()
-      vim.cmd("help " .. cw)
+  local cword = vim.fn.expand("<cword>")
+  if cword ~= "" and vim.fn.hlexists(cword) == 0 then
+    local ok = cword ~= "" and pcall(function()
+      vim.cmd("help " .. cword)
     end)
     if not ok then
       vim.cmd("help")
@@ -61,9 +59,8 @@ map("D", '"+d', "Delete to clipboard", "v")
 map("Y", "y$", "Yank the rest of the line")
 map("Y", '"+y', "Yank to clipboard", "v")
 map("<leader>Y", function()
-  local save_cursor = vim.fn.getpos(".")
-  vim.cmd("%yank +") -- no need to select all text
-  vim.fn.setpos(".", save_cursor)
+  local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
+  vim.fn.setreg("+", table.concat(lines, "\n") .. "\n")
 end, "Yank all text to clipboard")
 
 -- maintain selection
@@ -104,7 +101,7 @@ map("-", "zc", "Close fold")
 map("z+", "zR", "Open all folds in file")
 map("z-", "zM", "Close all folds in file")
 
--- splits / "vim-tmux-navigator" like
+-- vim-tmux-navigator like
 local function tmux_navigate(direction)
   local win = vim.api.nvim_get_current_win()
   vim.cmd("wincmd " .. direction)
@@ -123,11 +120,9 @@ map("<c-l>", function() tmux_navigate("l") end, "Navigate right")
 -- arrows
 local keys = { "left", "right", "up", "down", "pageup", "pagedown", "home", "end" }
 local modes = { "n", "v", "o", "x", "i", "s" }
-for _, mode in ipairs(modes) do
-  for _, key in ipairs(keys) do
-    map("<" .. key .. ">", "<nop>", "Hard mode", mode)
-    map("<c-" .. key .. ">", "<nop>", "Hard mode Ctrl", mode)
-  end
+for _, key in ipairs(keys) do
+  map("<" .. key .. ">", "<nop>", "Hard mode", modes)
+  map("<c-" .. key .. ">", "<nop>", "Hard mode Ctrl", modes)
 end
 
 local arrows = { h = "left", j = "down", k = "up", l = "right" }
@@ -147,9 +142,8 @@ local function move_no_scrolloff(key)
 end
 map("H", function() move_no_scrolloff("H") end, "Home line") -- vim.keymap.del("n", "H")
 map("L", function() move_no_scrolloff("L") end, "Last line") -- vim.keymap.del("n", "L")
-map("'", "<nop>", nil)
-map("M", "'", "Go to line mark")
--- map("M", "M", "Mid line") -- do it as Hzz or Lzz instead
+map("'", "<nop>", nil) -- avoid conflicting with Tmux prefix
+map("M", "'", "Go to line mark") -- do M as Hzz or Lzz instead
 -- stylua: ignore end
 
 -- stylua: ignore start
@@ -185,3 +179,4 @@ Snacks.toggle({ name = "Transparent Background",
       else vim.cmd("TransparentDisable") end
     end,
 }):map("<leader>uB")
+-- stylua: ignore end
