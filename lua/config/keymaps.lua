@@ -156,6 +156,17 @@ Snacks.toggle.option("cursorline", { name = "Highlight Cursorline"
 Snacks.toggle.option("relativenumber", { name = "Relative Number"
 }):map("<leader>uL")
 
+map("<leader>uC", function()
+  Snacks.picker.colorschemes({
+    layout = { preset = "vscode" },
+    transform = function(item)
+      local runtime = vim.env.VIMRUNTIME:gsub("\\", "/")
+      local path = (item.file or ""):gsub("\\", "/")
+      if path:find(runtime, 1, true) then return false end
+    end,
+  })
+end, "Colorschemes")
+
 Snacks.toggle({ name = "Auto-wrap",
   get = function() return vim.wo.colorcolumn ~= "" end,
   set = function(state)
