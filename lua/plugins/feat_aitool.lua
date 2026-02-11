@@ -5,6 +5,7 @@ return {
   },
   {
     "olimorris/codecompanion.nvim",
+    enabled = true,
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
@@ -14,6 +15,7 @@ return {
       { "<leader>aa", "<cmd>CodeCompanionChat Toggle<cr>", desc = "CC: Toggle chat panel" },
       { "<leader>an", "<cmd>CodeCompanionChat<cr>", desc = "CC: New chat" },
       { "<leader>ap", "<cmd>CodeCompanionActions<cr>", mode = { "n", "v" }, desc = "CC: Actions panel" },
+      "ravitemer/mcphub.nvim",
     },
     opts = {
       display = {
@@ -35,5 +37,14 @@ return {
         inline = { adapter = "gemini" },
       },
     },
+    keys = {
+      { "<leader>aa", "<cmd>CodeCompanionChat Toggle<cr>", mode = { "n", "v" }, desc = "CC: Toggle chat panel" },
+      { "<leader>aA", "<cmd>CodeCompanionChat Add<cr>", mode = "v", desc = "CC: Add selection to context" },
+      { "<leader>ap", "<cmd>CodeCompanionActions<cr>", mode = { "n", "v" }, desc = "CC: Actions panel" },
+    },
+    config = function(opts)
+      require("codecompanion").setup(opts)
+      vim.cmd("cab cc CodeCompanion")
+    end,
   },
 }
