@@ -10,12 +10,14 @@ return {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
       "MeanderingProgrammer/render-markdown.nvim",
+      "ravitemer/codecompanion-history.nvim",
+      "ravitemer/mcphub.nvim",
     },
     keys = {
       { "<leader>aa", "<cmd>CodeCompanionChat Toggle<cr>", desc = "CC: Toggle chat panel" },
+      { "<leader>aA", "<cmd>CodeCompanionChat Add<cr>", mode = "v", desc = "CC: Add selection to context" },
       { "<leader>an", "<cmd>CodeCompanionChat<cr>", desc = "CC: New chat" },
       { "<leader>ap", "<cmd>CodeCompanionActions<cr>", mode = { "n", "v" }, desc = "CC: Actions panel" },
-      "ravitemer/mcphub.nvim",
     },
     opts = {
       display = {
@@ -36,11 +38,6 @@ return {
         chat = { adapter = "gemini" },
         inline = { adapter = "gemini" },
       },
-    },
-    keys = {
-      { "<leader>aa", "<cmd>CodeCompanionChat Toggle<cr>", mode = { "n", "v" }, desc = "CC: Toggle chat panel" },
-      { "<leader>aA", "<cmd>CodeCompanionChat Add<cr>", mode = "v", desc = "CC: Add selection to context" },
-      { "<leader>ap", "<cmd>CodeCompanionActions<cr>", mode = { "n", "v" }, desc = "CC: Actions panel" },
     },
     config = function(opts)
       require("codecompanion").setup(opts)
