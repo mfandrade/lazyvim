@@ -1,6 +1,8 @@
 return {
   "nvim-treesitter/nvim-treesitter",
+  build = ":TSUpdate",
   opts = function()
+    -- set textobject for in/around markdown triple backticked codeblocks
     vim.api.nvim_create_autocmd("FileType", {
       pattern = "markdown",
       callback = function()
@@ -76,5 +78,44 @@ return {
         end, { buffer = true, desc = "Around Markdown code block" })
       end,
     })
+
+    local opts = {
+      ensure_installed = {
+        "bash",
+        "c",
+        "css",
+        "diff",
+        "html",
+        "javascript",
+        "json",
+        "latex",
+        "lua",
+        "luadoc",
+        "luap",
+        "markdown",
+        "markdown_inline",
+        "norg",
+        "python",
+        "query",
+        "regex",
+        "rust",
+        "scss",
+        "svelte",
+        "toml",
+        "tsx",
+        "typescript",
+        "typst",
+        "vim",
+        "vimdoc",
+        "vue",
+        "yaml",
+      },
+      auto_install = true,
+      highlight = { enable = true },
+      indent = { enable = true },
+      playground = { enable = false },
+    }
+
+    return opts
   end,
 }
