@@ -38,5 +38,6 @@ return {
       border = "thick",
       inline_pad = 1,
     },
+    latex = { enabled = false },
   },
 }
