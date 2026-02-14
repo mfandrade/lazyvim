@@ -3,6 +3,7 @@ return {
   priority = 1000,
   lazy = false,
   opts = {
+    statuscolumn = { enabled = true },
     dashboard = { enabled = true },
     indent = { enabled = true, animate = { enabled = false } },
     scope = { enabled = true, animate = { enabled = false } },
