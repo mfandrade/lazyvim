@@ -5,7 +5,6 @@ return {
   },
   {
     "olimorris/codecompanion.nvim",
-    enabled = true,
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
@@ -20,14 +19,14 @@ return {
       { "<leader>ap", "<cmd>CodeCompanionActions<cr>", mode = { "n", "v" }, desc = "CC: Actions panel" },
     },
     opts = {
-      display = { chat = { auto_scroll = false } },
+      display = {
+        chat = { auto_scroll = false },
+      },
       adapters = {
         gemini = function()
           return require("codecompanion.adapters").extend("gemini", {
             schema = {
-              model = {
-                default = "gemini-2.5.flash",
-              },
+              model = { default = "gemini-2.5.flash" },
             },
           })
         end,
