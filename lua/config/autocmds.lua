@@ -163,33 +163,3 @@ addautocmd("FileType", {
     end, { buffer = true, desc = "``` next code block" })
   end,
 })
-
--- Make folds persistent
--- local folds_persistence = augroup("folds_persistence")
--- addautocmd({ "BufWinLeave", "BufWritePost" }, {
---   group = folds_persistence,
---   callback = function()
---     if vim.bo.buftype == "" and vim.fn.expand("%") ~= "" then
---       vim.cmd.mkview()
---     end
---   end,
--- })
--- addautocmd("BufWinEnter", {
---   group = folds_persistence,
---   callback = function()
---     if vim.bo.buftype == "" and vim.fn.expand("%") ~= "" then
---       vim.defer_fn(function()
---         if not vim.api.nvim_buf_is_valid(0) then
---           return
---         end
---         local status = pcall(function()
---           vim.cmd.loadview({ mods = { emsg_silent = true } })
---         end)
---         if not status then
---           vim.wo.foldmethod = vim.o.foldmethod
---         end
---         vim.wo.foldtext = vim.o.foldtext
---       end, 100)
---     end
---   end,
--- })
