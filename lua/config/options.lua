@@ -74,10 +74,10 @@ _G.custom_fold_text = function()
 end
 
 local fold = vim.opt
-fold.foldexpr = "v:lua.vim.lsp.foldexpr()"
 fold.foldmethod = "expr"                     -- How the folds are defined
+fold.foldexpr = "v:lua.vim.treesitter.foldexpr()" -- "v:lua.vim.lsp.foldexpr()" treesitter is faster
 fold.foldlevel = 99                          -- All fold open by default
-fold.foldlevelstart = 0                      -- Fold the first level at first
+fold.foldlevelstart = 99                     -- Fold the first level at first
 fold.foldnestmax = 4                         -- Too deep nests doesn't make sense 
 fold.foldtext = "v:lua.custom_fold_text()"   -- What to show in the first line
 fold.fillchars:append({ foldopen = "", foldclose = "", foldsep = "", fold = " " })
