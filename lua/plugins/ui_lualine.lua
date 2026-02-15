@@ -12,6 +12,7 @@ return {
       opts.sections.lualine_b = { "branch" }
 
       opts.sections.lualine_y = {
+        { "filetype", icons_enabled = false },
         function()
           local bufid = vim.api.nvim_get_current_buf()
           local total = #vim.fn.getbufinfo({ buflisted = 1 })
