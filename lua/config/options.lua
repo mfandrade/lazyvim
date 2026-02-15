@@ -74,7 +74,12 @@ _G.custom_fold_text = function()
 end
 
 local fold = vim.opt
-fold.foldtext = "v:lua.custom_fold_text()"
+fold.foldexpr = "v:lua.vim.lsp.foldexpr()"   -- Uses LPS by default
+fold.foldmethod = "expr"                     -- How the folds are defined
+fold.foldlevel = 99                          -- All fold open by default
+--fold.foldlevelstart = 0                      -- Fold the first level at first
+fold.foldnestmax = 4                         -- Too deep nests doesn't make sense 
+fold.foldtext = "v:lua.custom_fold_text()"   -- What to show in the first line
 fold.fillchars:append({ foldopen = "", foldclose = "", foldsep = "", fold = " " })
 
 local undo = vim.opt
