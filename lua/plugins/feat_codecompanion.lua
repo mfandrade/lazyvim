@@ -27,7 +27,7 @@ return {
             send = {
               modes = {
                 n = "<CR>", -- Mantém o Enter no modo Normal
-                i = "<C-c>", -- Altera para Ctrl+c no modo Insert
+                i = "<C-M-c>", -- Altera para Ctrl+Alt+c no modo Insert
               },
               index = 1,
               callback = "keymaps.send",
