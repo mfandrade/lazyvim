@@ -24,11 +24,11 @@ return {
         chat = {
           adapter = "gemini",
           keymaps = {
+            close = {
+              modes = { n = "q", i = "<C-q>" },
+            },
             send = {
-              modes = {
-                n = "<CR>", -- Mantém o Enter no modo Normal
-                i = "<C-M-c>", -- Altera para Ctrl+Alt+c no modo Insert
-              },
+              modes = { n = "<CR>", i = "<C-c>" },
               index = 1,
               callback = "keymaps.send",
               description = "Send",
