@@ -19,7 +19,7 @@ local addautocmd = vim.api.nvim_create_autocmd
 -- Remove existing autocmds by their group name (which is prefixed with `lazyvim_` for the defaults)
 -- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
 
-delautocmd("lazyvim_close_with_q")
+--delautocmd("lazyvim_close_with_q")
 delautocmd("lazyvim_json_conceal")
 
 -- Or add any additional autocmds here
