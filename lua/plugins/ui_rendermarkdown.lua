@@ -1,29 +1,36 @@
+local icons = {
+  h123 = { "󰉫 ", "󰉬 ", "󰉭 ", "󰉮 ", "󰉯 ", "󰉰 " },
+  marks = { " ", " ", " ", "", "", "" },
+  dots = { "·", "·", "·", "·", "·", "·" },
+  hexa = { "󰫈 ", "󰫇 ", "󰫆 ", "󰫅 ", "󰫄 ", "󰫃 " },
+  dice = { "󱅊 ", "󱅋 ", "󱅌 ", "󱅍 ", "󱅎 ", "󱅏 " },
+  Dice = { "󰇊 ", "󰇋 ", "󰇌 ", "󰇍 ", "󰇎 ", "󰇏 " },
+  circle = { "󰲡 ", "󰲣 ", "󰲥 ", "󰲧 ", "󰲩 ", "󰲫 " },
+  Circle = { "󰲠 ", "󰲢 ", "󰲤 ", "󰲦 ", "󰲨 ", "󰲪 " },
+  square = { "󰎦 ", "󰎩 ", "󰎬 ", "󰎮 ", "󰎰 ", "󰎵 " },
+  Square = { "󰎤 ", "󰎧 ", "󰎪 ", "󰎭 ", "󰎱 ", "󰎳 " },
+  digital = { "🯱", "🯲", "🯳", "🯴", "🯵", "🯶" },
+}
+
 return {
   "MeanderingProgrammer/render-markdown.nvim",
-  ft = { "markdown", "codecompanion" },
+  ft = { "markdown", "codecompanion", "Avante" },
   opts = {
+    file_types = { "markdown", "codecompanion", "Avante" },
     heading = {
-      sign = true,
-      signs = { "󰉫 ", "󰉬 ", "󰉭 ", "󰉮 ", "󰉯 ", "󰉰 " },
-      -- signs = { " ", " ", " ", "", "", "" },
-      -- signs = { "·", "·", "·", "·", "·", "·" },
+      sign = false,
+      signs = icons.h123,
       position = "inline",
-      icons = { "󰫈 ", "󰫇 ", "󰫆 ", "󰫅 ", "󰫄 ", "󰫃 " },
-      -- icons = { "󰉫 ", "󰉬 ", "󰉭 ", "󰉮 ", "󰉯 ", "󰉰 " },
-      -- icons = { "󰲡 ", "󰲣 ", "󰲥 ", "󰲧 ", "󰲩 ", "󰲫 " },
-      -- icons = { "󱅊 ", "󱅋 ", "󱅌 ", "󱅍 ", "󱅎 ", "󱅏 " },
-      -- icons = { "󰇊 ", "󰇋 ", "󰇌 ", "󰇍 ", "󰇎 ", "󰇏 " },
-      -- icons = { "󰎤 ", "󰎧 ", "󰎪 ", "󰎭 ", "󰎱 ", "󰎳 " },
-      -- icons = { "󰎦 ", "󰎩 ", "󰎬 ", "󰎮 ", "󰎰 ", "󰎵 " },
+      icons = icons.hexa,
     },
     paragraph = {
       left_margin = 0,
     },
     bullet = {
-      left_pad = 2,
+      left_pad = 0,
     },
     checkbox = {
-      left_pad = 2,
+      left_pad = 0,
     },
     pipe_table = {
       preset = "round",
