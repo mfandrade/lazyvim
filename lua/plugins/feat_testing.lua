@@ -1,24 +1,26 @@
----@diagnostic disable: missing-fields
 return {
   {
     "vim-test/vim-test",
     -- dependencies = { "preservim/vimux" },
-    -- stylua: ignore
+    keys = {
+      { "<leader>Tl", "<cmd>TestLast<cr>", desc = "vim-test Last" },
+      { "<leader>Tr", "<cmd>TestNearest<cr>", desc = "vim-test Nearest" },
+      { "<leader>Tt", "<cmd>TestFile<cr>", desc = "vim-test File" },
+      { "<leader>TT", "<cmd>TestSuite<cr>", desc = "vim-test Suite" },
+      -- { "<leader>Tv", "<cmd>TestVisit<cr>",  desc = "vim-test Visit" },
+    },
     config = function()
       vim.cmd("let test#strategy = 'neovim'")
-      vim.keymap.set("n", "<leader>Tl", "<cmd>TestLast<cr>", { silent = true, noremap = true, desc = "vim-test Last" })
-      vim.keymap.set( "n", "<leader>Tr", "<cmd>TestNearest<cr>", { silent = true, noremap = true, desc = "vim-test Nearest" })
-      vim.keymap.set("n", "<leader>Tt", "<cmd>TestFile<cr>", { silent = true, noremap = true, desc = "vim-test File" })
-      vim.keymap.set( "n", "<leader>TT", "<cmd>TestSuite<cr>", { silent = true, noremap = true, desc = "vim-test Suite" })
-      -- vim.keymap.set("n", "<leader>Tv", "<cmd>TestVisit<cr>", { silent = true, noremap = true, desc = "vim-test Visit" })
     end,
   },
   {
     "nvim-neotest/neotest",
     dependencies = {
       "nvim-neotest/neotest-jest",
+      "nvim-neotest/neotest-python",
     },
     config = function()
+      ---@diagnostic disable-next-line: missing-fields
       require("neotest").setup({
         adapters = {
           require("neotest-jest")({
@@ -33,6 +35,7 @@ return {
             end,
             isTestFile = require("neotest-jest.jest-util").defaultIsTestFile,
           }),
+          require("neotest-python"),
         },
       })
     end,
