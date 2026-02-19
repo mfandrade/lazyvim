@@ -18,6 +18,13 @@ return {
     dependencies = {
       "nvim-neotest/neotest-jest",
       "nvim-neotest/neotest-python",
+      {
+        "fredrikaverpil/neotest-golang",
+        version = "*",
+        build = function()
+          vim.system({ "go", "install", "gotest.tools/gotestsum@latest" }):wait()
+        end,
+      },
     },
     config = function()
       ---@diagnostic disable-next-line: missing-fields
@@ -36,6 +43,11 @@ return {
             isTestFile = require("neotest-jest.jest-util").defaultIsTestFile,
           }),
           require("neotest-python"),
+          require("neotest-golang")({
+            runner = "gotestsum",
+            go_test_args = { "-v", "-race", "-count=1" },
+            dap_go_enabled = true,
+          }),
         },
       })
     end,
