@@ -28,9 +28,33 @@ return {
     display = { chat = { auto_scroll = true } },
     adapters = {
       gemini = function()
-        return require("codecompanion.adapters").extend("gemini", {
-          env = { api_key = "GEMINI_API_KEY" },
-        })
+        local conf = nil
+
+        if os.getenv("GOOGLE_CLOUD_PROJECT") then
+          conf = {
+            schema = {
+              project_id = { default = os.getenv("GOOGLE_CLOUD_PROJECT") },
+              location = {
+                default = os.getenv("GOOGLE_CLOUD_REGION") or os.getenv("GOOGLE_CLOUD_LOCATION") or "us-central1",
+              },
+              model = { default = "gemini-2.5-flash" },
+            },
+          }
+        elseif os.getenv("GEMINI_API_KEY") then
+          conf = {
+            env = {
+              api_key = "GEMINI_API_KEY",
+            },
+          }
+        else
+          vim.notify(
+            "CodeCompanion: Set GEMINI_API_KEY or set GOOGLE_CLOUD_PROJECT and run `gcloud auth application-default login`",
+            vim.log.levels.WARN
+          )
+          return nil
+        end
+
+        return require("codecompanion.adapters").extend("gemini", conf)
       end,
     },
     strategies = {
