@@ -49,6 +49,7 @@ indent.listchars = {                         -- How to show invisible chars
 local wrapping = vim.opt
 wrapping.wrap = false                        -- No wrap long lines by default
 wrapping.textwidth = 120                     -- Length of a single line of text before wrapping (when enabled)
+wrapping.colorcolumn = ""                    -- There is a custom auto-wrap feature which is disabled by default
 wrapping.breakindent = true                  -- Wrapped lines will retain the same indent
 wrapping.showbreak = "" --"↪ "               -- String to put at the start of lines that have been wrapped
 

@@ -176,14 +176,13 @@ end, "Colorschemes")
 Snacks.toggle({ name = "Auto-wrap",
   get = function() return vim.wo.colorcolumn ~= "" end,
   set = function(state)
-    local tw = vim.bo.textwidth
     if state then
-      if tw > 0 then
-        vim.opt_local.formatoptions:append({ "t", "c" })
-        vim.wo.colorcolumn = tostring(tw) or "120"
+      if vim.bo.textwidth > 0 then
+        vim.opt.formatoptions:append({ "t", "c" })
+        vim.wo.colorcolumn = tostring(vim.bo.textwidth) or "120"
       end
     else
-      vim.opt_local.formatoptions:remove({ "t", "c" })
+      vim.opt.formatoptions:remove({ "t", "c" })
       vim.wo.colorcolumn = ""
     end
   end,
