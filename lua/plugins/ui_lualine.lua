@@ -5,6 +5,7 @@ return {
     dependencies = { "franco-ruggeri/codecompanion-lualine.nvim" },
 
     opts = function(_, opts)
+      opts.options.theme = "auto"
       opts.options.section_separators = { left = "", right = "" } -- { left = "", right = "" }
       opts.options.component_separators = { left = "", right = "" }
       opts.options.globalstatus = true
