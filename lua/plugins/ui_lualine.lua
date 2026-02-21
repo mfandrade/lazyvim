@@ -2,6 +2,8 @@ return {
   { "akinsho/bufferline.nvim", enabled = false },
   {
     "nvim-lualine/lualine.nvim",
+    dependencies = { "franco-ruggeri/codecompanion-lualine.nvim" },
+
     opts = function(_, opts)
       opts.options.section_separators = { left = "", right = "" } -- { left = "", right = "" }
       opts.options.component_separators = { left = "", right = "" }
@@ -12,6 +14,16 @@ return {
       opts.sections.lualine_b = { "branch" }
 
       opts.sections.lualine_y = {
+        {
+          "codecompanion",
+          icon = false,
+          -- spinner_symbols = { "⣾", "⣽", "⣻", "⢿", "⡿", "⣟", "⣯", "⣷" },
+          -- spinner_symbols = { "▂", "▃", "▄", "▅", "▆", "▇", "█", "▇", "▆", "▅", "▄", "▃", "▂", },
+          -- spinner_symbols = { "", "", "", "", "", "" },
+          -- spinner_symbols = { "󱍈", "󱍌", "󱍎", "󱍌", "󱍈" },
+          spinner_symbols = { "󰟶", "󰟷" },
+          done_symbol = "",
+        },
         { "filetype", icons_enabled = false },
         function()
           local bufid = vim.api.nvim_get_current_buf()
@@ -19,7 +31,9 @@ return {
           return string.format(" %d/%d", bufid, total)
         end,
       }
-      opts.sections.lualine_z = { "%l:%c %p%%/%L" }
+      opts.sections.lualine_z = {
+        "%l:%c %p%%/%L",
+      }
     end,
   },
 }
