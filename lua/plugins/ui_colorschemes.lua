@@ -2,27 +2,23 @@ return {
   {
     "amedoeyes/eyes.nvim",
     lazy = true,
-    priority = 1000,
   },
   {
     "funnyVariable/blank.nvim",
     lazy = true,
-    priority = 1000,
-  },
-  {
-    "darkvoid-theme/darkvoid.nvim",
-    lazy = true,
-    priority = 1000,
   },
   {
     "Lokaltog/vim-monotone",
     lazy = true,
-    priority = 1000,
+  },
+  {
+    "aidyak/tokusa",
+    lazy = false,
   },
   {
     "catppuccin/nvim",
+    enabled = false,
     lazy = true,
-    priority = 1000,
   },
   {
     "folke/tokyonight.nvim",
