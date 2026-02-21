@@ -17,10 +17,6 @@ return {
         {
           "codecompanion",
           icon = false,
-          -- spinner_symbols = { "⣾", "⣽", "⣻", "⢿", "⡿", "⣟", "⣯", "⣷" },
-          -- spinner_symbols = { "▂", "▃", "▄", "▅", "▆", "▇", "█", "▇", "▆", "▅", "▄", "▃", "▂", },
-          -- spinner_symbols = { "", "", "", "", "", "" },
-          -- spinner_symbols = { "󱍈", "󱍌", "󱍎", "󱍌", "󱍈" },
           spinner_symbols = { "󰟶", "󰟷" },
           done_symbol = "",
         },
