@@ -12,6 +12,14 @@ return {
     lazy = true,
   },
   {
+    "KimNorgaard/vim-frign",
+    lazy = true,
+  },
+  {
+    "gnfisher/tomorrow-night-blue.nvim",
+    lazy = true,
+  },
+  {
     "aidyak/tokusa",
     lazy = false,
   },
