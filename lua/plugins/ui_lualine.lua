@@ -11,7 +11,7 @@ return {
       opts.options.globalstatus = true
 
       -- stylua: ignore
-      opts.sections.lualine_a = { { "mode", fmt = function(str) return " " .. str:sub(1, 3):upper() end, } }
+      opts.sections.lualine_a = { { "mode", fmt = function(str) return " " .. str:sub(1, 3):upper() end } }
       opts.sections.lualine_b = { "branch" }
 
       opts.sections.lualine_x = opts.sections.lualine_x or {}
