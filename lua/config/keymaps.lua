@@ -194,4 +194,13 @@ Snacks.toggle({ name = "Transparent Background",
       else vim.cmd("TransparentDisable") end
     end,
 }):map("<leader>uB")
+
+map("<leader>gO", function() -- open room for toggle blame line
+  Snacks.gitbrowse()
+end, "Git Open Remote in Browser", { "n", "x" })
+
+Snacks.toggle({ name = "Current Blame Line",
+  get = function() return require("gitsigns.config").config.current_line_blame end,
+  set = function(state) require("gitsigns").toggle_current_line_blame(state) end,
+}):map("<leader>gB")
 -- stylua: ignore end
