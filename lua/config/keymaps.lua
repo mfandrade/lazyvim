@@ -147,10 +147,9 @@ map("'", "<nop>", nil) -- avoid conflicting with Tmux prefix
 map("M", "'", "Go to line mark") -- do M as Hzz or Lzz instead
 -- stylua: ignore end
 
--- vim.keymap.del("n", "<leader>-")
-vim.keymap.del("n", "<leader>|")
+-- pcall(vim.keymap.del, "n", "<leader>|")
 map("<leader>-", "<C-W>s", "Split Horizontaly")
-map("<leader>+", "<C-W>v", "Split Verticaly")
+map("<leader>\\", "<C-W>v", "Split Verticaly")
 
 -- stylua: ignore start
 Snacks.toggle.option("list", { name = "Invisible Chars"
