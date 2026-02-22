@@ -104,12 +104,12 @@ map("z-", "zM", "Close all folds in file")
 
 -- vim-tmux-navigator like
 local function tmux_navigate(direction)
-  -- local win = vim.api.nvim_get_current_win()
+  local win = vim.api.nvim_get_current_win()
   vim.cmd("wincmd " .. direction)
-  -- if win == vim.api.nvim_get_current_win() then
-  local tmux_dir = { h = "L", j = "D", k = "U", l = "R" }
-  vim.system({ "tmux", "select-pane", "-" .. tmux_dir[direction] }, { detach = true })
-  -- end
+  if win == vim.api.nvim_get_current_win() then
+    local tmux_dir = { h = "L", j = "D", k = "U", l = "R" }
+    vim.system({ "tmux", "select-pane", "-" .. tmux_dir[direction] }, { detach = true })
+  end
 end
 -- stylua: ignore start
 map("<c-h>", function() tmux_navigate("h") end, "Navigate left")
@@ -147,9 +147,9 @@ map("'", "<nop>", nil) -- avoid conflicting with Tmux prefix
 map("M", "'", "Go to line mark") -- do M as Hzz or Lzz instead
 -- stylua: ignore end
 
--- pcall(vim.keymap.del, "n", "<leader>|")
+pcall(vim.keymap.del, "n", "<leader>|")
 map("<leader>-", "<C-W>s", "Split Horizontaly")
-map("<leader>\\", "<C-W>v", "Split Verticaly")
+map("<leader>+", "<C-W>v", "Split Verticaly")
 
 -- stylua: ignore start
 Snacks.toggle.option("list", { name = "Invisible Chars"
