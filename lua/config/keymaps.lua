@@ -104,12 +104,12 @@ map("z-", "zM", "Close all folds in file")
 
 -- vim-tmux-navigator like
 local function tmux_navigate(direction)
-  local win = vim.api.nvim_get_current_win()
+  -- local win = vim.api.nvim_get_current_win()
   vim.cmd("wincmd " .. direction)
-  if win == vim.api.nvim_get_current_win() then
-    local tmux_dir = { h = "L", j = "D", k = "U", l = "R" }
-    vim.system({ "tmux", "select-pane", "-" .. tmux_dir[direction] }, { detach = true })
-  end
+  -- if win == vim.api.nvim_get_current_win() then
+  local tmux_dir = { h = "L", j = "D", k = "U", l = "R" }
+  vim.system({ "tmux", "select-pane", "-" .. tmux_dir[direction] }, { detach = true })
+  -- end
 end
 -- stylua: ignore start
 map("<c-h>", function() tmux_navigate("h") end, "Navigate left")
