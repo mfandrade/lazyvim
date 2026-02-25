@@ -119,7 +119,7 @@ map("z-", "zM", "Close all folds in file")
 local function tmux_navigate(direction)
   local win = vim.api.nvim_get_current_win()
   vim.cmd("wincmd " .. direction)
-  if win == vim.api.nvim_get_current_win() then
+  if win == vim.api.nvim_get_current_win() or true then
     local tmux_dir = { h = "L", j = "D", k = "U", l = "R" }
     vim.system({ "tmux", "select-pane", "-" .. tmux_dir[direction] }, { detach = true })
   end
