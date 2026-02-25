@@ -135,12 +135,12 @@ map("<c-l>", function() tmux_navigate("l") end, "Navigate right")
 local keys = { "left", "right", "up", "down", "pageup", "pagedown", "home", "end" }
 local modes = { "n", "v", "o", "x", "i", "s" }
 for _, key in ipairs(keys) do
-  map("<" .. key .. ">", "<nop>", "Hard mode", modes)
-  map("<c-" .. key .. ">", "<nop>", "Hard mode Ctrl", modes)
+  map("<" .. key .. ">", "<nop>", "<nop>", modes)
+  -- map("<c-" .. key .. ">", "<nop>", "<nop>", modes)
 end
 
 local arrows = { h = "left", j = "down", k = "up", l = "right" }
-local nav_modes = { "v", "o", "x", "i", "s" }
+local nav_modes = { "v", "i" } -- { "v", "o", "x", "i", "s" }
 for _, mode in ipairs(nav_modes) do
   for key, dir in pairs(arrows) do
     map("<c-" .. key .. ">", "<" .. dir .. ">", "Cursor " .. dir, mode)
