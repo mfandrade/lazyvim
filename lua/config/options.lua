@@ -8,7 +8,7 @@ conf.clipboard = "unnamed"                   -- Don't sync with system clipboard
 conf.mouse = "a"                             -- Enable mouse support for all modes
 conf.tildeop = true                          -- Make tilde (~) behave like an operator
 conf.updatetime = 250                        -- Faster completion and trigger for CursorHold
-conf.timeoutlen = 500                        -- Time to wait for a mapped sequence to complete
+conf.timeoutlen = 999                        -- Time to wait for a mapped sequence to complete
 conf.scrolloff = 5                           -- Minimum number of lines to keep above/below the cursor
 conf.modeline = true                         -- Modelines are useful for per-file settings
 conf.modelines = 2                           -- How many lines at bottom/top to check
@@ -18,7 +18,7 @@ line.number = true                           -- Show absolute line number
 line.relativenumber = true                   -- Show relative line number
 
 local editor = vim.opt
-editor.cmdheight = 0                         -- Use 0 lines (make more room for code)
+editor.cmdheight = 1                         -- Use 0 lines (make more room for code)
 editor.laststatus = 3                        -- Global status bar (just one in background, regardless splits)
 editor.signcolumn = "yes"                    -- Always show the sign column to prevent text shifting
 editor.showtabline = 0                       -- Never show the tab line

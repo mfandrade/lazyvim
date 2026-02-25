@@ -4,26 +4,51 @@ local function map(keycomb, target, desc, mode, opts)
   vim.keymap.set(mode or "n", keycomb, target, options)
 end
 
--- help
+-- normal mode
+map("kj", "<esc>", "Escape", "i")
+
+local f1_timer = nil
 map("<f1>", function()
-  Snacks.picker.help()
-end, "Help")
-map("<f1><f1>", function()
-  local cword = vim.fn.expand("<cword>")
-  if cword ~= "" and vim.fn.hlexists(cword) == 0 then
-    local ok = cword ~= "" and pcall(function()
-      vim.cmd("help " .. cword)
+  if f1_timer then
+    f1_timer:stop()
+    f1_timer = nil
+    local cword = vim.fn.expand("<cword>")
+
+    local ok = pcall(function()
+      vim.cmd("help " .. (cword ~= "" and cword or "help"))
     end)
     if not ok then
       vim.cmd("help")
     end
-  end
-end, "Help!")
 
--- normal mode
-map("kj", "<esc>", "Escape", "i")
-map("0", "^", "Beginning of the line (non-blank chars)")
-map("00", "0", "Beginning of the line")
+    vim.cmd("wincmd p") -- ensure focus help window
+    vim.cmd("wincmd w")
+  else
+    f1_timer = vim.loop.new_timer()
+    if f1_timer then
+      f1_timer:start(
+        250,
+        0,
+        vim.schedule_wrap(function()
+          f1_timer:stop()
+          f1_timer = nil
+          Snacks.picker.help()
+        end)
+      )
+    end
+  end
+end, "Smart Help")
+
+-- smart 0
+map("0", function()
+  local col = vim.fn.col(".")
+  local first_nonblank = vim.fn.indent(vim.fn.line(".")) + 1
+  if col == first_nonblank then
+    return "0"
+  else
+    return "^"
+  end
+end, "Begining of the line", "n", { expr = true })
 
 -- saves and quits
 map("<leader>w", "<cmd>write<cr>", "Save")
