@@ -165,6 +165,33 @@ map("<leader>-", "<C-W>s", "Split Horizontaly")
 map("<leader>+", "<C-W>v", "Split Verticaly")
 
 -- stylua: ignore start
+map("<leader>fN", "<cmd>enew<cr>", "New file")
+map("<leader>fP", function() Snacks.picker.projects() end, "Projects")
+-- stylua: ignore end
+
+-- copy file name, path and absolute path
+vim.keymap.del("n", "<leader>fn")
+vim.keymap.del("n", "<leader>fp")
+
+map("<leader>fn", function()
+  local name = vim.fn.expand("%:t")
+  vim.fn.setreg("+", name)
+  vim.notify("Copied filename: " .. name)
+end, "Copy filename")
+
+map("<leader>fp", function()
+  local path = vim.fn.expand("%:.")
+  vim.fn.setreg("+", path)
+  vim.notify("Copied file path: " .. path)
+end, "Copy file path")
+
+map("<leader>fa", function()
+  local path = vim.fn.expand("%:p")
+  vim.fn.setreg("+", path)
+  vim.notify("Copied absolute path: " .. path)
+end, "Copy absolute path")
+
+-- stylua: ignore start
 Snacks.toggle.option("list", { name = "Invisible Chars"
 }):map("<leader>uv")
 
