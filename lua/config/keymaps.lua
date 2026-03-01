@@ -187,7 +187,7 @@ map("M", "'", "Go to line mark") -- do M as Hzz or Lzz instead
 
 pcall(vim.keymap.del, "n", "<leader>|")
 map("<leader>-", "<C-W>s", "Split Horizontaly")
-map("<leader>+", "<C-W>v", "Split Verticaly")
+map("<leader>\\", "<C-W>v", "Split Verticaly")
 
 -- stylua: ignore start
 map("<leader>fN", "<cmd>enew<cr>", "New file")
