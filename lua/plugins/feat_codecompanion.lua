@@ -1,4 +1,4 @@
-local model = "gemini-flash-latest"
+local adapter = "mistral_vibe" -- Options: mistral_vibe, gemini, anthropic, deepseek
 
 return {
   "olimorris/codecompanion.nvim",
@@ -29,24 +29,9 @@ return {
     require("codecompanion").setup({
       display = { chat = { auto_scroll = false } },
       strategies = {
-        chat = {
-          adapter = {
-            name = "gemini",
-            model = model,
-          },
-        },
-        inline = {
-          adapter = {
-            name = "gemini",
-            model = model,
-          },
-        },
-        agent = {
-          adapter = {
-            name = "gemini",
-            model = model,
-          },
-        },
+        chat = { adapter = adapter },
+        inline = { adapter = adapter },
+        agent = { adapter = adapter },
       },
     })
   end,
