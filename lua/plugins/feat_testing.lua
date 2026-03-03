@@ -1,14 +1,15 @@
 return {
   {
     "vim-test/vim-test",
-    -- dependencies = { "preservim/vimux" },
     keys = {
-      { "<leader>Tl", "<cmd>TestLast<cr>", desc = "vim-test Last" },
-      { "<leader>Tr", "<cmd>TestNearest<cr>", desc = "vim-test Nearest" },
-      { "<leader>Tt", "<cmd>TestFile<cr>", desc = "vim-test File" },
-      { "<leader>TT", "<cmd>TestSuite<cr>", desc = "vim-test Suite" },
-      -- { "<leader>Tv", "<cmd>TestVisit<cr>",  desc = "vim-test Visit" },
+      { "<leader>tv", "", desc = "+vim-test" },
+      { "<leader>tvl", "<cmd>TestLast<cr>", desc = "Run last" },
+      { "<leader>tvr", "<cmd>TestNearest<cr>", desc = "Run nearest" },
+      { "<leader>tvt", "<cmd>TestFile<cr>", desc = "Run file" },
+      { "<leader>tvT", "<cmd>TestSuite<cr>", desc = "Run suite" },
+      { "<leader>tvv", "<cmd>TestVisit<cr>", desc = "Visit last" },
     },
+    -- dependencies = { "preservim/vimux" },
     config = function()
       vim.cmd("let test#strategy = 'neovim'")
     end,
@@ -25,6 +26,21 @@ return {
           vim.system({ "go", "install", "gotest.tools/gotestsum@latest" }):wait()
         end,
       },
+    },
+    keys = {
+      -- stylua: ignore start
+      {"<leader>t", "", desc = "+test"},
+      { "<leader>ta", function() require("neotest").run.attach() end, desc = "Attach to test" },
+      { "<leader>tt", function() require("neotest").run.run(vim.fn.expand("%")) end, desc = "Run file" },
+      { "<leader>tT", function() require("neotest").run.run(vim.uv.cwd()) end, desc = "Run all test files" },
+      { "<leader>tr", function() require("neotest").run.run() end, desc = "Run nearest" },
+      { "<leader>tl", function() require("neotest").run.run_last() end, desc = "Run last" },
+      { "<leader>ts", function() require("neotest").summary.toggle() end, desc = "Toggle summary" },
+      { "<leader>to", function() require("neotest").output.open({ enter = true, auto_close = true }) end, desc = "Show output" },
+      { "<leader>tO", function() require("neotest").output_panel.toggle() end, desc = "Toggle output panel" },
+      { "<leader>tS", function() require("neotest").run.stop() end, desc = "Stop" },
+      { "<leader>tw", function() require("neotest").watch.toggle(vim.fn.expand("%")) end, desc = "Toggle watch" },
+      -- stylua: ignore end
     },
     config = function()
       ---@diagnostic disable-next-line: missing-fields
