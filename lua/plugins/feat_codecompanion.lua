@@ -28,7 +28,7 @@ return {
   },
   config = function()
     require("codecompanion").setup({
-      display = { chat = { auto_scroll = true } },
+      display = { chat = { auto_scroll = false } },
       strategies = {
         chat = {
           adapter = {
