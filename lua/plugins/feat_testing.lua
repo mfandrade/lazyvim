@@ -9,9 +9,9 @@ return {
       { "<leader>tvT", "<cmd>TestSuite<cr>", desc = "Run suite" },
       { "<leader>tvv", "<cmd>TestVisit<cr>", desc = "Visit last" },
     },
-    -- dependencies = { "preservim/vimux" },
+    dependencies = { "preservim/vimux" },
     config = function()
-      vim.cmd("let test#strategy = 'neovim'")
+      vim.cmd("let test#strategy = 'vimux'")
     end,
   },
   {
