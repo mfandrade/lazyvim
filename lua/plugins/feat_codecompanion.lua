@@ -5,6 +5,7 @@ return {
   dependencies = {
     "nvim-lua/plenary.nvim",
     "nvim-treesitter/nvim-treesitter",
+    "ravitemer/codecompanion-history.nvim",
     {
       "ravitemer/mcphub.nvim",
       dependencies = { "nvim-lua/plenary.nvim" },
@@ -22,8 +23,8 @@ return {
     { "<localleader>a", "<cmd>CodeCompanionChat Toggle<cr>", mode = { "n", "v" }, desc = "CC: toggle" },
     { "<localleader>p", "<cmd>CodeCompanionActions<cr>", mode = { "n", "v" }, desc = "CC: actions panel" },
     { "<localleader>i", "<cmd>CodeCompanion<cr>", mode = { "n", "v" }, desc = "CC: inline prompt" },
-    { "ga", "<cmd>CodeCompanionChat Add<cr>", mode = "v", desc = "CC: add selection to chat" },
-    { "ge", "<cmd>CodeCompanion /explain<cr>", mode = "v", desc = "CC: explain selection" },
+    { "ga", "<cmd>CodeCompanionChat Add<cr>", mode = "v", desc = "Add selection to chat" },
+    { "ge", "<cmd>CodeCompanion /explain<cr>", mode = "v", desc = "Explain selection" },
   },
   config = function()
     require("codecompanion").setup({
