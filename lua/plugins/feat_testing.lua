@@ -58,12 +58,13 @@ return {
             end,
             isTestFile = require("neotest-jest.jest-util").defaultIsTestFile,
           }),
-          require("neotest-python"),
           require("neotest-golang")({
             runner = "gotestsum",
             go_test_args = { "-v", "-race", "-count=1" },
             dap_go_enabled = true,
           }),
+          require("neotest-python"),
+          require("neotest-bash"),
         },
       })
     end,
