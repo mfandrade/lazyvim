@@ -21,9 +21,9 @@ return {
   keys = {
     { "<localleader>a", "<cmd>CodeCompanionChat Toggle<cr>", mode = { "n", "v" }, desc = "CC: toggle" },
     { "<localleader>p", "<cmd>CodeCompanionActions<cr>", mode = { "n", "v" }, desc = "CC: actions panel" },
-    { "ga", "<cmd>CodeCompanionChat Add<cr>", mode = "v", desc = "CC: add selection to chat" },
     { "<localleader>i", "<cmd>CodeCompanion<cr>", mode = { "n", "v" }, desc = "CC: inline prompt" },
-    { "<localleader>e", "<cmd>CodeCompanion /explain<cr>", mode = "v", desc = "CC: explain selected code" },
+    { "ga", "<cmd>CodeCompanionChat Add<cr>", mode = "v", desc = "CC: add selection to chat" },
+    { "ge", "<cmd>CodeCompanion /explain<cr>", mode = "v", desc = "CC: explain selection" },
   },
   config = function()
     require("codecompanion").setup({
