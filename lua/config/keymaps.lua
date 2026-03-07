@@ -42,6 +42,10 @@ end, "Smart Help")
 -- smart 0
 map("0", function()
   local col = vim.fn.col(".")
+  local line = vim.fn.getline(".")
+  if line:match("^%s*$") then
+    return col == 1 and "^" or "0"
+  end
   local first_nonblank = vim.fn.indent(vim.fn.line(".")) + 1
   if col == first_nonblank then
     return "0"
