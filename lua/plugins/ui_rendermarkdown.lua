@@ -5,8 +5,8 @@ local icons = {
   hashs = { " ", " ", " ", " ", " ", " " },
   dots = { "· ", "· ", "· ", "· ", "· ", "· " },
   hexa = { "󰫈 ", "󰫇 ", "󰫆 ", "󰫅 ", "󰫄 ", "󰫃 " },
-  dice = { "󱅊 ", "󱅋 ", "󱅌 ", "󱅍 ", "󱅎 ", "󱅏 " },
-  Dice = { "󰇊 ", "󰇋 ", "󰇌 ", "󰇍 ", "󰇎 ", "󰇏 " },
+  dice = { "󱅏 ", "󱅎 ", "󱅍 ", "󱅌 ", "󱅋 ", "󱅊 " },
+  Dice = { "󰇏 ", "󰇎 ", "󰇍 ", "󰇌 ", "󰇋 ", "󰇊 " },
   circle = { "󰲡 ", "󰲣 ", "󰲥 ", "󰲧 ", "󰲩 ", "󰲫 " },
   Circle = { "󰲠 ", "󰲢 ", "󰲤 ", "󰲦 ", "󰲨 ", "󰲪 " },
   square = { "󰎦 ", "󰎩 ", "󰎬 ", "󰎮 ", "󰎰 ", "󰎵 " },
@@ -23,20 +23,12 @@ return {
       sign = false,
       signs = icons.hashs,
       position = "inline",
-      icons = icons.hexa,
+      icons = icons.Dice,
     },
-    paragraph = {
-      left_margin = 0,
-    },
-    bullet = {
-      left_pad = 0,
-    },
-    checkbox = {
-      left_pad = 0,
-    },
-    pipe_table = {
-      preset = "round",
-    },
+    paragraph = { left_margin = 0 },
+    bullet = { left_pad = 0 },
+    checkbox = { left_pad = 0 },
+    pipe_table = { preset = "round" },
     code = {
       position = "right",
       width = "block",
