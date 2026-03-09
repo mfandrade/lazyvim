@@ -105,22 +105,9 @@ map("<c-u>", "<c-u>zz", "Scroll up")
 
 -- move the viewport
 map("J", "<c-e>", "Scroll viewport down")
+map("K", "<c-y>", "Scroll viewport up")
 map("<leader>j", "J", "Join lines")
-vim.api.nvim_create_autocmd("LspAttach", {
-  callback = function(args)
-    vim.schedule(function()
-      vim.keymap.set("n", "K", "<c-y>", {
-        buffer = args.buf,
-        desc = "Scroll viewport up",
-        remap = false,
-      })
-      vim.keymap.set("n", "gh", vim.lsp.buf.hover, {
-        buffer = args.buf,
-        desc = "LSP hover documentation",
-      })
-    end)
-  end,
-})
+--map("<leader>k", "vim.lsp.buf.hover", "Hover documentation")
 
 -- move lines
 map("<a-j>", "<cmd>move .+1<cr>==", "Move down")
