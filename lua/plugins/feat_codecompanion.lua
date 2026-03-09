@@ -1,4 +1,11 @@
-local adapter = "mistral_vibe" -- Options: mistral_vibe, gemini, anthropic, deepseek
+local adapter_name = nil
+if vim.fn.executable("gemini") then
+  adapter_name = "gemini_cli"
+elseif vim.fn.executable("vibe") then
+  adapter_name = "mistral_vibe"
+end
+-- Options for adapter: gemini_cli, mistral_vibe, anthropic, deepseek
+-- If neither 'gemini' nor 'vibe' is found, the adapter will be nil.
 
 return {
   "olimorris/codecompanion.nvim",
@@ -30,9 +37,9 @@ return {
     require("codecompanion").setup({
       display = { chat = { auto_scroll = false } },
       strategies = {
-        chat = { adapter = adapter },
-        inline = { adapter = adapter },
-        agent = { adapter = adapter },
+        chat = { adapter = adapter_name },
+        inline = { adapter = adapter_name },
+        agent = { adapter = adapter_name },
       },
     })
   end,
