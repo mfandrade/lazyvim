@@ -5,30 +5,34 @@ vim.g.snacks_animate = false
 
 local conf = vim.opt
 conf.clipboard = "unnamed"                   -- Don't sync with system clipboard
+conf.modelines = 2                           -- How many lines at bottom/top to check
+conf.modeline = true                         -- Modelines are useful for per-file settings
 conf.mouse = "a"                             -- Enable mouse support for all modes
 conf.tildeop = true                          -- Make tilde (~) behave like an operator
-conf.updatetime = 250                        -- Faster completion and trigger for CursorHold
 conf.timeoutlen = 999                        -- Time to wait for a mapped sequence to complete
-conf.scrolloff = 5                           -- Minimum number of lines to keep above/below the cursor
-conf.modeline = true                         -- Modelines are useful for per-file settings
-conf.modelines = 2                           -- How many lines at bottom/top to check
+conf.updatetime = 250                        -- Faster completion and trigger for CursorHold
+conf.winborder = "rounded"
 
 local line = vim.opt
+line.breakindent = true                      -- Wrapped lines will retain the same indent
+line.colorcolumn = ""                        -- There is a custom auto-wrap feature which is disabled by default
 line.number = true                           -- Show absolute line number
 line.relativenumber = true                   -- Show relative line number
+line.showbreak = "" --"↪ "                   -- String to put at the start of lines that have been wrapped
+line.textwidth = 120                         -- Length of a single line of text before wrapping (when enabled)
+line.wrap = false                            -- No wrap long lines by default
 
 local editor = vim.opt
 editor.cmdheight = 1                         -- Use 0 lines (make more room for code)
-editor.laststatus = 3                        -- Global status bar (just one in background, regardless splits)
-editor.signcolumn = "yes"                    -- Always show the sign column to prevent text shifting
-editor.showtabline = 0                       -- Never show the tab line
-editor.showmode = false                      -- Hide mode (e.g. -- INSERT --) as it's often in statusline
-editor.cursorline = true                     -- Highlight the current line
 editor.colorcolumn = "+1"                    -- Draw cursorcolumn 1 char after textwidth
-
-local panes = vim.opt
-panes.splitright = true                      -- Vertical splits will automatically be on the right
-panes.splitbelow = true                      -- Horizontal splits will automatically be below
+editor.cursorline = true                     -- Highlight the current line
+editor.laststatus = 3                        -- Global status bar (just one in background, regardless splits)
+editor.scrolloff = 5                         -- Minimum number of lines to keep above/below the cursor
+editor.showmode = false                      -- Hide mode (e.g. -- INSERT --) as it's often in statusline
+editor.showtabline = 0                       -- Never show the tab line
+editor.signcolumn = "yes"                    -- Always show the sign column to prevent text shifting
+editor.splitright = true                     -- Vertical splits will automatically be on the right
+editor.splitbelow = true                     -- Horizontal splits will automatically be below
 
 local indent = vim.opt
 indent.expandtab = true                      -- Convert tabs to spaces
@@ -45,18 +49,6 @@ indent.listchars = {                         -- How to show invisible chars
   precedes = "…",
   eol      = "⏎",
 }
-
-local wrapping = vim.opt
-wrapping.wrap = false                        -- No wrap long lines by default
-wrapping.textwidth = 120                     -- Length of a single line of text before wrapping (when enabled)
-wrapping.colorcolumn = ""                    -- There is a custom auto-wrap feature which is disabled by default
-wrapping.breakindent = true                  -- Wrapped lines will retain the same indent
-wrapping.showbreak = "" --"↪ "               -- String to put at the start of lines that have been wrapped
-
-local search = vim.opt
-search.ignorecase = true                     -- Ignore case in search patterns
-search.smartcase = true                      -- Override 'ignorecase' if search pattern contains upper case
-search.inccommand = "nosplit"                -- Show live preview of substitution in a split window
 
 _G.custom_fold_text = function()
   local fs = vim.v.foldstart
@@ -75,17 +67,22 @@ _G.custom_fold_text = function()
 end
 
 local fold = vim.opt
-fold.foldmethod = "expr"                     -- How the folds are defined
-fold.foldexpr = "v:lua.vim.treesitter.foldexpr()" -- "v:lua.vim.lsp.foldexpr()" treesitter is faster
 fold.foldlevel = 99                          -- All fold open by default
 fold.foldlevelstart = 99                     -- Fold the first level at first
 fold.foldnestmax = 10                        -- Too deep nests doesn't make sense 
+fold.foldmethod = "expr"                     -- How the folds are defined
 fold.foldtext = "v:lua.custom_fold_text()"   -- What to show in the first line
+fold.foldexpr = "v:lua.vim.treesitter.foldexpr()" -- "v:lua.vim.lsp.foldexpr()" 
 fold.fillchars:append({ foldopen = "", foldclose = "", foldsep = "", fold = " " })
 
 local undo = vim.opt
 undo.undofile = true                         -- Save undo history to a file so it persists after closing
 undo.undolevels = 10000                      -- Maximum number of changes that can be undone
+
+local search = vim.opt
+search.ignorecase = true                     -- Ignore case in search patterns
+search.smartcase = true                      -- Override 'ignorecase' if search pattern contains upper case
+search.inccommand = "nosplit"                -- Show live preview of substitution in a split window
 
 local backup = vim.opt
 backup.autowriteall = true                   -- To avoid annoying confirmation dialogs
