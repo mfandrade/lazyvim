@@ -58,7 +58,7 @@ end, "Begining of the line", "n", { expr = true })
 map("<leader>,", "A,<esc>", "Append ,")
 map("<leader>;", "A;<esc>", "Append ;")
 map("<leader>\\", "A\\<esc>", "Append \\")
-map("<leader>a", "GA", "Append to the end of the buffer")
+map("AA", "GA", "Append to the end of the buffer")
 
 -- saves and quits
 map("<leader>w", "<cmd>write<cr>", "Save")
