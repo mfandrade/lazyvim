@@ -19,6 +19,7 @@ return {
     dependencies = {
       "nvim-neotest/neotest-jest",
       "nvim-neotest/neotest-python",
+      "rcasia/neotest-bash",
       {
         "fredrikaverpil/neotest-golang",
         version = "*",
@@ -36,8 +37,8 @@ return {
       { "<leader>tr", function() require("neotest").run.run() end, desc = "Run nearest" },
       { "<leader>tl", function() require("neotest").run.run_last() end, desc = "Run last" },
       { "<leader>ts", function() require("neotest").summary.toggle() end, desc = "Toggle summary" },
-      { "<leader>to", function() require("neotest").output.open({ enter = true, auto_close = true }) end, desc = "Show output" },
-      { "<leader>tO", function() require("neotest").output_panel.toggle() end, desc = "Toggle output panel" },
+   -- { "<leader>to", function() require("neotest").output.open({ enter = true, auto_close = true }) end, desc = "Show output" },
+      { "<leader>to", function() require("neotest").output_panel.toggle() end, desc = "Toggle output panel" },
       { "<leader>tS", function() require("neotest").run.stop() end, desc = "Stop" },
       { "<leader>tw", function() require("neotest").watch.toggle(vim.fn.expand("%")) end, desc = "Toggle watch" },
       -- stylua: ignore end
