@@ -107,7 +107,7 @@ map("<c-u>", "<c-u>zz", "Scroll up")
 map("J", "<c-e>", "Scroll viewport down")
 map("K", "<c-y>", "Scroll viewport up")
 map("<leader>j", "J", "Join lines")
---map("<leader>k", "vim.lsp.buf.hover", "Hover documentation")
+-- "<leader>k" function() vim.lsp.buf.hover() end
 
 -- move lines
 map("<a-j>", "<cmd>move .+1<cr>==", "Move down")

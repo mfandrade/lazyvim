@@ -3,9 +3,10 @@ return {
   opts = {
     servers = {
       ["*"] = {
+        -- stylua: ignore
         keys = {
           { "K", false },
-          { "<leader>k", vim.lsp.buf.hover, desc = "Hover documentation" },
+          { "<leader>k", function() vim.lsp.buf.hover() end, desc = "Hover documentation", },
         },
       },
     },

@@ -11,7 +11,7 @@ conf.mouse = "a"                             -- Enable mouse support for all mod
 conf.tildeop = true                          -- Make tilde (~) behave like an operator
 conf.timeoutlen = 999                        -- Time to wait for a mapped sequence to complete
 conf.updatetime = 250                        -- Faster completion and trigger for CursorHold
-conf.winborder = "rounded"
+conf.winborder = "rounded"                   -- Border setting for neovim 0.11+
 
 local line = vim.opt
 line.breakindent = true                      -- Wrapped lines will retain the same indent
