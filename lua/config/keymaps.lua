@@ -259,4 +259,9 @@ Snacks.toggle({ name = "Current Blame Line",
   get = function() return require("gitsigns.config").config.current_line_blame end,
   set = function(state) require("gitsigns").toggle_current_line_blame(state) end,
 }):map("<leader>gB")
+
+Snacks.toggle({ name = "Auto-save" ,
+  get = function () return require("auto-save").enabled end,
+  set = function(state) require("auto-save").enabled = state end,
+}):map("<leader>a")
 -- stylua: ignore end
