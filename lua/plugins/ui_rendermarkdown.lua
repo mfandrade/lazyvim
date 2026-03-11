@@ -3,7 +3,9 @@ local icons = {
   bars = { "▇ ", "▆ ", "▅ ", "▄ ", "▃ ", "▂ " },
   marks = { " ", " ", " ", " ", " ", " " },
   hashs = { " ", " ", " ", " ", " ", " " },
+  hashs_partial = { " ", " ", "  ", "  ", "  ", "  " },
   dots = { "· ", "· ", "· ", "· ", "· ", "· " },
+  middots = { "◉ ", "• ", "· ", "⁚ ", "⁖ ", "⸬ " }, --, "⁙ " },
   hexa = { "󰫈 ", "󰫇 ", "󰫆 ", "󰫅 ", "󰫄 ", "󰫃 " },
   dice = { "󱅏 ", "󱅎 ", "󱅍 ", "󱅌 ", "󱅋 ", "󱅊 " },
   Dice = { "󰇏 ", "󰇎 ", "󰇍 ", "󰇌 ", "󰇋 ", "󰇊 " },
@@ -12,6 +14,7 @@ local icons = {
   square = { "󰎦 ", "󰎩 ", "󰎬 ", "󰎮 ", "󰎰 ", "󰎵 " },
   Square = { "󰎤 ", "󰎧 ", "󰎪 ", "󰎭 ", "󰎱 ", "󰎳 " },
   digital = { "🯱 ", "🯲 ", "🯳 ", "🯴 ", "🯵 ", "🯶 " },
+  roman = { "Ⅰ ", "Ⅱ ", "Ⅲ ", "Ⅳ ", "Ⅴ ", "Ⅵ " },
 }
 
 return {
@@ -20,10 +23,10 @@ return {
   opts = {
     file_types = { "markdown", "codecompanion", "Avante" },
     heading = {
-      sign = false,
-      signs = icons.hashs,
+      sign = true,
+      signs = icons.roman,
       position = "inline",
-      icons = icons.Dice,
+      icons = icons.Square,
     },
     paragraph = { left_margin = 0 },
     bullet = { left_pad = 0 },
