@@ -1,7 +1,8 @@
 return {
   {
     "amedoeyes/eyes.nvim",
-    lazy = true,
+    lazy = false,
+    priority = 1000,
   },
   {
     "funnyVariable/blank.nvim",
@@ -30,8 +31,7 @@ return {
   },
   {
     "folke/tokyonight.nvim",
-    lazy = false,
-    priority = 1000,
+    lazy = true,
   },
   {
     "xiyaowong/transparent.nvim",
@@ -65,5 +65,5 @@ return {
       end,
     },
   },
-  { "LazyVim/LazyVim", opts = { colorscheme = "tokyonight" } },
+  { "LazyVim/LazyVim", opts = { colorscheme = "eyes" } },
 }
