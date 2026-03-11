@@ -11,7 +11,12 @@ return {
     picker = {
       enabled = true,
       filter = { exclude = { ".git", "node_modules" } },
-      sources = { explorer = { layout = { layout = { position = "right" } } } },
+      sources = {
+        explorer = {
+          layout = { layout = { position = "right" } },
+          win = { list = { wo = { number = true, relativenumber = true } } },
+        },
+      },
     },
   },
 }
