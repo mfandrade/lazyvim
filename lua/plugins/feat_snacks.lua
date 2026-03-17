@@ -6,6 +6,7 @@ return {
     image = { enabled = true },
     statuscolumn = { enabled = true },
     dashboard = { enabled = true },
+    lazygit = { enabled = true },
     indent = { enabled = true, animate = { enabled = false } },
     scope = { enabled = true, animate = { enabled = false } },
     picker = {
