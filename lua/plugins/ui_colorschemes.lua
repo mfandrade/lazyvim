@@ -5,8 +5,7 @@ return {
   },
   {
     "funnyVariable/blank.nvim",
-    lazy = false,
-    priority = 1000,
+    lazy = true,
   },
   {
     "Lokaltog/vim-monotone",
@@ -31,7 +30,8 @@ return {
   },
   {
     "folke/tokyonight.nvim",
-    lazy = true,
+    lazy = false,
+    priority = 1000,
   },
   {
     "xiyaowong/transparent.nvim",
@@ -47,5 +47,5 @@ return {
       end,
     },
   },
-  { "LazyVim/LazyVim", opts = { colorscheme = "blank" } },
+  { "LazyVim/LazyVim", opts = { colorscheme = "tokyonight-night" } },
 }
