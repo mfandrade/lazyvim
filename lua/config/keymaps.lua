@@ -191,6 +191,8 @@ map("<leader>fa", function()
   vim.notify("Copied absolute path: " .. path)
 end, "Copy absolute path")
 
+map("<s-insert>", "<c-r>+", "Paste from system clipboard", { "c", "i" })
+
 -- stylua: ignore start
 Snacks.toggle.option("list", { name = "Invisible Chars"
 }):map("<leader>uv")
